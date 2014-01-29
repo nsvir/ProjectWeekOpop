@@ -10,19 +10,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
+
+    private PlaceholderFragment mPlaceholderFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mPlaceholderFragment = new PlaceholderFragment();
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, mPlaceholderFragment)
                     .commit();
         }
+
     }
 
 
@@ -49,7 +55,9 @@ public class MainActivity extends ActionBarActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
+
+        boolean bluetoothActivated = false;
 
         public PlaceholderFragment() {
         }
@@ -58,7 +66,23 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            if (rootView == null)
+                rootView = inflater.inflate(R.layout.fragment_main, null);
+            if (rootView != null)
+            {
+                ((TextView)rootView.findViewById(R.id.text)).setText(R.string.bluetooth_off);
+                rootView.findViewById(R.id.button).setOnClickListener(this);
+            }
             return rootView;
+        }
+
+        @Override
+        public void onClick(View view) {
+            bluetoothActivated = !bluetoothActivated;
+            if (bluetoothActivated)
+                ((TextView)getView().findViewById(R.id.text)).setText(R.string.bluetooth_on);
+            else
+                ((TextView)getView().findViewById(R.id.text)).setText(R.string.bluetooth_off);
         }
     }
 
