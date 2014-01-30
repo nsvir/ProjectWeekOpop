@@ -20,6 +20,7 @@ public class MyActivity extends ActionBarActivity{
         Ed.putString("login", null);
         Ed.putString("password", null);
         Ed.commit();
+
     }
 
     @Override
