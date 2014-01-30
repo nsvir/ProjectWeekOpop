@@ -1,25 +1,15 @@
 package com.example.projectweek;
 
+
 import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class CatergorieActivity extends ActionBarActivity {
+
+public class CategorieActivity extends ActionBarActivity {
 
 
     @Override
@@ -32,7 +22,6 @@ public class CatergorieActivity extends ActionBarActivity {
                     .replace(R.id.container, new FragmentCategorie())
                     .commit();
         }
-
     }
 
     @Override
@@ -54,16 +43,5 @@ public class CatergorieActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-    private void handleIntent(Intent intent) {
-
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            //use the query to search your data somehow
-        }
-    }
-
-
 
 }

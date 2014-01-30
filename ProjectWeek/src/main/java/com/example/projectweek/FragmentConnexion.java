@@ -1,5 +1,6 @@
 package com.example.projectweek;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.renderscript.Sampler;
@@ -44,7 +45,9 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
     public void checkLoginInfo() {
         savePreference();
         Toast.makeText(getActivity(), "Connected!", Toast.LENGTH_SHORT).show();
-        ((MainActivity)getActivity()).addFragment(new FragmentEvents());
+        Intent intent = new Intent(getActivity(), CategorieActivity.class);
+        startActivity(intent);
+
     }
 
     public boolean getPreference() {

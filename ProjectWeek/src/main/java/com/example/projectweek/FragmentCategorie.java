@@ -1,6 +1,7 @@
 package com.example.projectweek;
 
 
+import android.content.Intent;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -35,7 +36,8 @@ public class FragmentCategorie extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        ((MainActivity) getActivity()).addFragment(new FragmentEvents());
+        Intent intent = new Intent(getActivity(), EventActivity.class);
+        startActivity(intent);
     }
 
 }
