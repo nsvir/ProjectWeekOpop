@@ -10,7 +10,7 @@ import android.view.MenuItem;
  * Created by svirch_n on 30/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
-public class ConnexionActivity extends ActionBarActivity{
+public class ConnexionActivity extends ActionBarActivity {
 
     FragmentConnexion fragment = new FragmentConnexion();
 
