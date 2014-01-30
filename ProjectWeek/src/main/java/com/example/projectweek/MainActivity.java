@@ -29,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new FragmentCategorie())
+                    .replace(R.id.container, new FragmentConnexion())
                     .commit();
         }
 

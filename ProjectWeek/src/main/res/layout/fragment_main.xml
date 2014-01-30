@@ -9,6 +9,7 @@
     tools:context=".MainActivity$PlaceholderFragment">
 
     <LinearLayout
+
         android:orientation="vertical"
         android:gravity="center"
         android:layout_centerInParent="true"

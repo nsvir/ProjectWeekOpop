@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="bluetooth_on">Bluetooth Activated</string>
     <string name="bluetooth_off">Bluetooth Disabled</string>
-
+    <string name="login">login</string>
+    <string name="password">password</string>
+    <string name="connect">Connect</string>
 </resources>
