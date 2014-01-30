@@ -42,7 +42,6 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
             case R.id.shareButton:
                 ((QuestionnaireActivity) getActivity()).shareSomething();
                 break;
-
         }
     }
 

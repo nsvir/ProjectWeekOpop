@@ -7,7 +7,7 @@
     <string name="bluetooth_on">Bluetooth Activated</string>
     <string name="bluetooth_off">Bluetooth Disabled</string>
     <string name="search_hint">Rechercher</string>
-
+    <string name="logout">Deconnexion</string>
 
     <string name="login">login</string>
     <string name="password">password</string>
