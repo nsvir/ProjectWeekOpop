@@ -1,5 +1,6 @@
 package com.example.projectweek;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +14,12 @@ public class MyActivity extends ActionBarActivity{
 
 
     public void logout() {
+        SharedPreferences sp = getSharedPreferences("loginInfo", 0);
+        SharedPreferences.Editor Ed = sp.edit();
 
+        Ed.putString("login", null);
+        Ed.putString("password", null);
+        Ed.commit();
     }
 
     @Override

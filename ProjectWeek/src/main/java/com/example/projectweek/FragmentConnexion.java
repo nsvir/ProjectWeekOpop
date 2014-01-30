@@ -74,14 +74,4 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
             Ed.commit();
         }
     }
-
-    public void logout()
-    {
-        SharedPreferences sp = getActivity().getSharedPreferences("loginInfo", 0);
-        SharedPreferences.Editor Ed = sp.edit();
-
-        Ed.putString("login", null);
-        Ed.putString("password", null);
-        Ed.commit();
-    }
 }
