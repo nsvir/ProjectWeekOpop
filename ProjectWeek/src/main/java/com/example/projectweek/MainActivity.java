@@ -16,7 +16,7 @@ import android.os.Build;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends MyActivity {
 
     private PlaceholderFragment mPlaceholderFragment;
 

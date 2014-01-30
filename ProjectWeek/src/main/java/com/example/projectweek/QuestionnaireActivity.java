@@ -5,12 +5,14 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 /**
  * Created by svirch_n on 30/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
-public class QuestionnaireActivity extends ActionBarActivity {
+public class QuestionnaireActivity extends MyActivity {
 
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -27,6 +29,17 @@ public class QuestionnaireActivity extends ActionBarActivity {
                     .commit();
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
     /*      Picture methods     */

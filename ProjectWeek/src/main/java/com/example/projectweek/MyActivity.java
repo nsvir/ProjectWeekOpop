@@ -11,8 +11,6 @@ import android.view.MenuItem;
  */
 public class MyActivity extends ActionBarActivity{
 
-
-
     public void logout() {
         SharedPreferences sp = getSharedPreferences("loginInfo", 0);
         SharedPreferences.Editor Ed = sp.edit();
@@ -20,7 +18,6 @@ public class MyActivity extends ActionBarActivity{
         Ed.putString("login", null);
         Ed.putString("password", null);
         Ed.commit();
-
     }
 
     @Override
