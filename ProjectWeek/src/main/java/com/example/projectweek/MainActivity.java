@@ -65,9 +65,9 @@ public class MainActivity extends ActionBarActivity {
     /*      Picture methods     */
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    private PictureTaker mPictureTaker = null;
+    private IPictureTaker mPictureTaker = null;
 
-    public void takeAPicture(PictureTaker pictureTaker) {
+    public void takeAPicture(IPictureTaker pictureTaker) {
 
         mPictureTaker = pictureTaker;
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

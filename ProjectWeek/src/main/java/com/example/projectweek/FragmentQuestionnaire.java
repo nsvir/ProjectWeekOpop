@@ -13,7 +13,7 @@ import android.widget.ImageView;
  * Created by svirch_n on 29/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
-public class FragmentQuestionnaire extends Fragment implements View.OnClickListener, PictureTaker{
+public class FragmentQuestionnaire extends Fragment implements View.OnClickListener, IPictureTaker {
 
     public FragmentQuestionnaire() {
 
@@ -25,28 +25,29 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
 
         View view = inflater.inflate(R.layout.fragment_questionnaire, container, false);
 
-        view.findViewById(R.id.imageButton).setOnClickListener(this);
-        view.findViewById(R.id.shareButton).setOnClickListener(this);
+        if (view != null) {
+            view.findViewById(R.id.imageButton).setOnClickListener(this);
+            view.findViewById(R.id.shareButton).setOnClickListener(this);
+        }
 
         return (view);
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.imageButton:
-                ((MainActivity)getActivity()).takeAPicture(this);
+                ((MainActivity) getActivity()).takeAPicture(this);
                 break;
             case R.id.shareButton:
-                ((MainActivity)getActivity()).shareSomething();
+                ((MainActivity) getActivity()).shareSomething();
                 break;
 
         }
     }
 
-    public void setImage(Bitmap bitmap)
-    {
-        ((ImageView)getView().findViewById(R.id.image)).setImageBitmap(bitmap);
+    public void setImage(Bitmap bitmap) {
+        ((ImageView) getView().findViewById(R.id.image)).setImageBitmap(bitmap);
     }
 
     @Override
