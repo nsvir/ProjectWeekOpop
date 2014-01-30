@@ -37,10 +37,10 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imageButton:
-                ((MainActivity) getActivity()).takeAPicture(this);
+                ((QuestionnaireActivity) getActivity()).takeAPicture(this);
                 break;
             case R.id.shareButton:
-                ((MainActivity) getActivity()).shareSomething();
+                ((QuestionnaireActivity) getActivity()).shareSomething();
                 break;
 
         }

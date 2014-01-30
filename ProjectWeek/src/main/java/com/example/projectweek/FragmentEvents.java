@@ -4,6 +4,7 @@ package com.example.projectweek;
 import android.app.SearchManager;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -78,7 +79,8 @@ public class FragmentEvents extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        ((MainActivity) getActivity()).addFragment(new FragmentQuestionnaire());
+        Intent intent = new Intent(getActivity(), QuestionnaireActivity.class);
+        startActivity(intent);
     }
 
 }
