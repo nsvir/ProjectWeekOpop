@@ -3,6 +3,7 @@ package com.example.projectweek;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 
 public class FragmentCategorie extends ListFragment {
 
+    private Typeface mTypeface = null;
+
     private String[] mColor = {
             "#F8B194",
             "#EF997B",
@@ -29,19 +32,20 @@ public class FragmentCategorie extends ListFragment {
 
 
     private String[] mArray = {
-            "Restaurant",
-            "Hotel",
-            "Mode",
-            "Service",
-            "Culturel",
-            "Sortie",
-            "Electronique"
+            "RESTAURANT",
+            "HOTEL",
+            "MODE",
+            "SERVICE",
+            "CULTUREL",
+            "SORTIE",
+            "ELECTRONIQUE"
     };
 
     @Override
     public void onResume() {
         super.onResume();
 
+        mTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
         setListAdapter(new MyAdapter());
     }
 
@@ -69,6 +73,7 @@ public class FragmentCategorie extends ListFragment {
                 view = getActivity().getLayoutInflater().inflate(R.layout.item_categorie, null);
             if (view != null) {
                 ((TextView) view.findViewById(R.id.text)).setText(mArray[position]);
+                ((TextView) view.findViewById(R.id.text)).setTypeface(mTypeface);
                 view.findViewById(R.id.linear).setBackgroundColor(Color.parseColor(mColor[position]));
             }
             return view;

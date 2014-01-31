@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
  * Created by svirch_n on 31/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
+
 public class ManageActivity extends MyActivity {
 
     Fragment fragment;
