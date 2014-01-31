@@ -4,10 +4,15 @@ package com.example.projectweek;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,7 +21,7 @@ import android.widget.TextView;
  * nicolas.svirchevsky@epitech.eu
  */
 
-public class FragmentCategorie extends ListFragment {
+public class FragmentCategorie extends Fragment {
 
     private Typeface mTypeface = null;
 
@@ -30,7 +35,6 @@ public class FragmentCategorie extends ListFragment {
             "#355C7C"
     };
 
-
     private String[] mArray = {
             "RESTAURANT",
             "HOTEL",
@@ -42,22 +46,52 @@ public class FragmentCategorie extends ListFragment {
     };
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+
+
+        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+        View view = inflater.inflate(R.layout.fragment_categorie, container, false);
+        View newView;
+        ViewGroup viewGroup;
+        if (view != null) {
+            viewGroup = (ViewGroup) view.findViewById(R.id.linear);
+            for (int i = 0; i < mArray.length; i++) {
+                newView = inflater.inflate(R.layout.item_categorie, null);
+                ((TextView)newView.findViewById(R.id.text)).setText(mArray[i]);
+                ((TextView)newView.findViewById(R.id.text)).setTypeface(mTypeface);
+                newView.setBackgroundColor(Color.parseColor(mColor[i]));
+                viewGroup.addView(newView, param);
+            }
+
+        }
+        return view;
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
 
         mTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
-        setListAdapter(new MyAdapter());
     }
 
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        Intent intent = new Intent(getActivity(), EventActivity.class);
-        String message = mColor[position];
-        intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
+//    @Override
+//    public void onListItemClick(ListView l, View v, int position, long id) {
+//        super.onListItemClick(l, v, position, id);
+//
+//        Intent intent = new Intent(getActivity(), EventActivity.class);
+//        String message = mColor[position];
+//        intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
+//        startActivity(intent);
+//    }
+//
 
     public class MyAdapter extends ArrayAdapter<String> {
 
