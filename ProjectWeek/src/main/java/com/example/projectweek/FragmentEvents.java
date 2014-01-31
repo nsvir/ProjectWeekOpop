@@ -47,7 +47,7 @@ public class FragmentEvents extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        Intent intent = new Intent(getActivity(), QuestionnaireActivity.class);
+        Intent intent = new Intent(getActivity(), AvisActivity.class);
         startActivity(intent);
     }
 
