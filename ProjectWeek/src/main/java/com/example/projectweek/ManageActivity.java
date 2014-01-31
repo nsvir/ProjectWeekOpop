@@ -1,5 +1,6 @@
 package com.example.projectweek;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -17,6 +18,7 @@ public class ManageActivity extends MyActivity {
         setContentView(R.layout.activity_main);
 
         fragment = new FragmentManage();
+
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()

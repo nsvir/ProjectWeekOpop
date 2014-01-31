@@ -2,6 +2,7 @@ package com.example.projectweek;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import android.view.MenuItem;
 
 public class EventActivity extends MyActivity {
 
+    FragmentEvents fragmentEvents;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +28,14 @@ public class EventActivity extends MyActivity {
 
         getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#355C7C")));
 
+        fragmentEvents = new FragmentEvents();
+
+        Intent intent = getIntent();
+        fragmentEvents.setColor(intent.getStringExtra(MyActivity.EXTRA_MESSAGE));
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new FragmentEvents())
+                    .replace(R.id.container, fragmentEvents)
                     .commit();
         }
     }

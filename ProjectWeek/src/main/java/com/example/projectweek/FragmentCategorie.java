@@ -1,7 +1,6 @@
 package com.example.projectweek;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.ListFragment;
@@ -10,9 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Vector;
 
 /**
  * Created by svirch_n on 29/01/14.
@@ -54,6 +50,8 @@ public class FragmentCategorie extends ListFragment {
         super.onListItemClick(l, v, position, id);
 
         Intent intent = new Intent(getActivity(), EventActivity.class);
+        String message = mColor[position];
+        intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 

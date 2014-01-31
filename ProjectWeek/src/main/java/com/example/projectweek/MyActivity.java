@@ -12,6 +12,8 @@ import android.view.MenuItem;
 
 public class MyActivity extends ActionBarActivity{
 
+    public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+
     public void logout() {
         SharedPreferences sp = getSharedPreferences("loginInfo", 0);
         SharedPreferences.Editor Ed = sp.edit();
