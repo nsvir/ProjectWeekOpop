@@ -21,17 +21,18 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
 
     }
 
-    View login = null;
-    View pswd = null;
+    View viewLogin = null;
+    View viewPswd = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
         View view = inflater.inflate(R.layout.fragment_connexion, container, false);
-        login = view.findViewById(R.id.login);
-        pswd = view.findViewById(R.id.password);
+        viewLogin = view.findViewById(R.id.login);
+        viewPswd = view.findViewById(R.id.password);
         view.findViewById(R.id.connect).setOnClickListener(this);
+        view.findViewById(R.id.signUp).setOnClickListener(this);
         if (getPreference())
             checkLoginInfo();
         return (view);
@@ -39,39 +40,64 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        checkLoginInfo();
+        switch (view.getId()) {
+            case R.id.connect:
+                checkLoginInfo();
+                break;
+            case R.id.signUp:
+                Intent intent = new Intent(getActivity(), SignupActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
     public void checkLoginInfo() {
+        if (checkPreference() == false) {
+            Toast.makeText(getActivity(), getString(R.string.wrongLogInfo), Toast.LENGTH_SHORT).show();
+            return;
+        }
         savePreference();
-        Toast.makeText(getActivity(), "Connected!", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getActivity(), CategorieActivity.class);
+        Toast.makeText(getActivity(), getString(R.string.goodLogInfo), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), ManageActivity.class);
         startActivity(intent);
-
     }
 
     public boolean getPreference() {
-        SharedPreferences sp1 = getActivity().getSharedPreferences("loginInfo", 0);
-        String loginSP = sp1.getString("login", null);
-        String pswdSP = sp1.getString("password", null);
+        SharedPreferences sp = getActivity().getSharedPreferences("loginInfo", 0);
+        String spLogin = sp.getString("login", null);
+        String spPswd = sp.getString("password", null);
 
-        if (loginSP == null || pswdSP == null)
+        if (spLogin == null || spPswd == null)
             return (false);
-        ((EditText) login).setText(loginSP, TextView.BufferType.EDITABLE);
-        ((EditText) pswd).setText(pswdSP, TextView.BufferType.EDITABLE);
+        ((EditText) viewLogin).setText(spLogin, TextView.BufferType.EDITABLE);
+        ((EditText) viewPswd).setText(spPswd, TextView.BufferType.EDITABLE);
         return (true);
     }
 
     public void savePreference() {
         SharedPreferences sp = getActivity().getSharedPreferences("loginInfo", 0);
         SharedPreferences.Editor Ed = sp.edit();
-        Editable loginText = ((EditText) login).getText();
-        Editable passwordText = ((EditText) pswd).getText();
+        Editable currentLogin = ((EditText) viewLogin).getText();
+        Editable currentPassword = ((EditText) viewPswd).getText();
 
-        if (loginText != null && passwordText != null) {
-            Ed.putString("login", loginText.toString());
-            Ed.putString("password", passwordText.toString());
+        if (currentLogin != null && currentPassword != null) {
+            Ed.putString("login", currentLogin.toString());
+            Ed.putString("password", currentPassword.toString());
             Ed.commit();
         }
+    }
+
+    public boolean checkPreference() {
+        SharedPreferences sp = getActivity().getSharedPreferences("signUpInfo", 0);
+        String signUpLogin = sp.getString("login", null);
+        String signUpPswd = sp.getString("password", null);
+        Editable currentLogin = ((EditText) viewLogin).getText();
+        Editable currentPswd = ((EditText) viewPswd).getText();
+
+        if (currentLogin == null || currentPswd == null || signUpLogin == null || signUpPswd == null)
+            return (false);
+        if (signUpLogin.equals(currentLogin.toString()) == true && signUpPswd.equals(currentPswd.toString()) == true)
+            return (true);
+        return (false);
     }
 }

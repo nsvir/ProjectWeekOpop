@@ -31,5 +31,10 @@
             android:layout_width="match_parent"
             android:text="@string/connect" />
 
+        <Button
+            android:id="@+id/signUp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/signUp" />
     </LinearLayout>
 </RelativeLayout>

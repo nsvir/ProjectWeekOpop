@@ -8,7 +8,17 @@
     <string name="bluetooth_off">Bluetooth Disabled</string>
     <string name="search_hint">Rechercher</string>
     <string name="logout">Deconnexion</string>
-    <string name="login">login</string>
-    <string name="password">password</string>
-    <string name="connect">Connect</string>
+
+    <string name="login">Pseudo</string>
+    <string name="password">Mot de passe</string>
+    <string name="wrongLogInfo">Identifiants incorrectes</string>
+    <string name="goodLogInfo">Connecté</string>
+    <string name="connect">Connection</string>
+    <string name="signUp">S\'enregistrer</string>
+
+    <string name="firstname">Prénom</string>
+    <string name="lastname">Nom</string>
+    <string name="email">email</string>
+    <string name="birthdate">Date de Naissance</string>
+    <string name="sex">Sex</string>
 </resources>
