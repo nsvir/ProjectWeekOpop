@@ -1,5 +1,6 @@
 package com.example.projectweek;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
         viewPswd = view.findViewById(R.id.password);
         view.findViewById(R.id.connect).setOnClickListener(this);
         view.findViewById(R.id.signUp).setOnClickListener(this);
+        view.findViewById(R.id.bluetooth).setOnClickListener(this);
         if (getPreference())
             checkLoginInfo();
         return (view);
@@ -48,6 +50,28 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
                 Intent intent = new Intent(getActivity(), SignupActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.bluetooth:
+                bluetooth();
+                break;
+        }
+    }
+
+    BluetoothAdapter bt;
+
+    public void bluetooth() {
+        bt = BluetoothAdapter.getDefaultAdapter();
+        //get bluetooth code to print bt (optional)
+        //tv.setText("BT:"+bt);
+        //Check Availability of bluetooth
+        if (bt == null) {
+            Toast.makeText(getActivity(), "Bluetooth Not Available in device", Toast.LENGTH_SHORT).show();
+        } else {
+            if (!bt.isEnabled()) {
+                Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivity(i);
+            } else {
+                bt.disable();
+            }
         }
     }
 
