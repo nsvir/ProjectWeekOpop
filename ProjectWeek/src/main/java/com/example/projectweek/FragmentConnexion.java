@@ -51,10 +51,19 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
         }
     }
 
+    public boolean debugMode() {
+        if (((EditText) viewLogin).getText().toString().equals("") && ((EditText) viewPswd).getText().toString().equals(""))
+            return true;
+        return false;
+    }
+
+
     public void checkLoginInfo() {
-        if (checkPreference() == false) {
-            Toast.makeText(getActivity(), getString(R.string.wrongLogInfo), Toast.LENGTH_SHORT).show();
-            return;
+        if (debugMode() == false) {
+            if (checkPreference() == false) {
+                Toast.makeText(getActivity(), getString(R.string.wrongLogInfo), Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
         savePreference();
         Toast.makeText(getActivity(), getString(R.string.goodLogInfo), Toast.LENGTH_SHORT).show();
