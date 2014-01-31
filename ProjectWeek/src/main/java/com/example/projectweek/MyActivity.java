@@ -9,6 +9,7 @@ import android.view.MenuItem;
  * Created by svirch_n on 30/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
+
 public class MyActivity extends ActionBarActivity{
 
     public void logout() {
@@ -22,7 +23,9 @@ public class MyActivity extends ActionBarActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 
     @Override
