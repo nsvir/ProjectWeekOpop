@@ -1,18 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    xmlns:projectWeek="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/account"
+        android:title="@string/account"
+        android:icon="@drawable/icone_profil"
+        android:orderInCategory="40"
+        projectWeek:showAsAction="always" />
 
     <item
         android:id="@+id/logout"
         android:title="@string/logout"
         android:orderInCategory="50"
-        app:showAsAction="never" />
+        projectWeek:showAsAction="never" />
 
     <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        projectWeek:showAsAction="never" />
 
 </menu>

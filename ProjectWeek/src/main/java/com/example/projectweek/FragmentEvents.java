@@ -1,6 +1,7 @@
 package com.example.projectweek;
 
 
+import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.ClipData;
 import android.content.Context;
@@ -49,11 +50,13 @@ public class FragmentEvents extends ListFragment {
 
         setListAdapter(new MyArray());
 
-        if (mColor != null) {
+        ActionBar actionBar = getActivity().getActionBar();
+
+        if (mColor != null && actionBar != null) {
             getListView().setDivider(new ColorDrawable(Color.parseColor(mColor)));
-            getActivity().getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(mColor)));
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(mColor)));
         }
-        getListView().setDividerHeight(4);
+        getListView().setDividerHeight(2);
     }
 
 

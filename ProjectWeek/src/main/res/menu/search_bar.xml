@@ -5,9 +5,16 @@
     <item
         android:id="@+id/default_search"
         android:icon="@android:drawable/ic_menu_search"
-        android:title="search"
+        android:title="@string/search"
         projectWeek:showAsAction="always"
         projectWeek:actionViewClass="android.support.v7.widget.SearchView"
+        />
+
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/icone_profil"
+        android:title="@string/account"
+        projectWeek:showAsAction="always"
         />
 
     <item

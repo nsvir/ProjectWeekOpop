@@ -21,4 +21,6 @@
     <string name="email">email</string>
     <string name="birthdate">Date de Naissance</string>
     <string name="sex">Sex</string>
+    <string name="account">Compte</string>
+    <string name="search">Rechercher</string>
 </resources>

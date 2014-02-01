@@ -26,13 +26,13 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
     private Typeface mTypeface = null;
 
     private String[] mColor = {
-            "#F8B194",
-            "#EF997B",
-            "#F67281",
-            "#C16E87",
-            "#706684",
-            "#73587D",
-            "#355C7C"
+            "#FFA854",
+            "#EB6753",
+            "#ED7280",
+            "#C06E86",
+            "#AF606D",
+            "#663653",
+            "#462446"
     };
 
     private String[] mArray = {
@@ -76,6 +76,10 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
         return view;
     }
 
+    public String[] getColor() {
+        return mColor;
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -86,43 +90,10 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(getActivity(), EventActivity.class);
-        String message = mColor[((ViewGroup)view.getParent()).indexOfChild(view)];
+        String message = mColor[((ViewGroup) view.getParent()).indexOfChild(view)];
         intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
-        String title = mArray[((ViewGroup)view.getParent()).indexOfChild(view)];
+        String title = mArray[((ViewGroup) view.getParent()).indexOfChild(view)];
         intent.putExtra(MyActivity.EXTRA_TITLE, title);
         startActivity(intent);
     }
-
-//    @Override
-//    public void onListItemClick(ListView l, View v, int position, long id) {
-//        super.onListItemClick(l, v, position, id);
-//
-//        Intent intent = new Intent(getActivity(), EventActivity.class);
-//        String message = mColor[position];
-//        intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
-//        startActivity(intent);
-//    }
-//
-
-    public class MyAdapter extends ArrayAdapter<String> {
-
-        public MyAdapter() {
-            super(getActivity(), R.layout.item_categorie, mArray);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            View view = convertView;
-            if (view == null)
-                view = getActivity().getLayoutInflater().inflate(R.layout.item_categorie, null);
-            if (view != null) {
-                ((TextView) view.findViewById(R.id.text)).setText(mArray[position]);
-                ((TextView) view.findViewById(R.id.text)).setTypeface(mTypeface);
-                view.findViewById(R.id.linear).setBackgroundColor(Color.parseColor(mColor[position]));
-            }
-            return view;
-        }
-    }
-
 }

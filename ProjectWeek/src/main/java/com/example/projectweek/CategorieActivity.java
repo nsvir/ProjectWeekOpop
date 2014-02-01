@@ -1,6 +1,7 @@
 package com.example.projectweek;
 
 
+import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,7 +20,14 @@ public class CategorieActivity extends MyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#355C7C")));
+        FragmentCategorie fragmentCategorie = new FragmentCategorie();
+
+        String[] color = fragmentCategorie.getColor();
+
+        ActionBar actionBar = getActionBar();
+
+        if (actionBar != null && color != null && color.length > 0)
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(color[color.length - 1])));
 
         setTitle("CATEGORIE");
 
