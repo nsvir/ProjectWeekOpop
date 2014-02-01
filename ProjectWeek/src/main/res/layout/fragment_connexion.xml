@@ -14,22 +14,32 @@
         android:orientation="horizontal"
         android:paddingTop="25dp">
 
-        <Button
-            android:id="@+id/signUpWithFacebookBt"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:text="f"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/background_Yellow" />
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/signUpBt"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text=">"
+            <Button
+                android:id="@+id/signUpWithFacebookBt"
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:background="@drawable/icone_facebook" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/background_Orange" />
+            android:gravity="center">
 
+            <Button
+                android:id="@+id/signUpBt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=">"
+                android:background="@color/background_Orange" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -122,7 +132,7 @@
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:background="@color/background_Yellow"
-            android:minHeight="35dp"/>
+            android:minHeight="35dp" />
     </LinearLayout>
 
 </LinearLayout>
