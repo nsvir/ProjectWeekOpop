@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="login_LeftRightMargin">20dp</dimen>
+    <dimen name="subscription_Square">100dp</dimen>
     </resources>
