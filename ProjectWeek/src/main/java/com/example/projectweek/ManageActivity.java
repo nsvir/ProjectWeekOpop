@@ -3,8 +3,10 @@ package com.example.projectweek;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 /**
  * Created by svirch_n on 31/01/14.
@@ -13,7 +15,7 @@ import android.view.MenuItem;
 
 public class ManageActivity extends MyActivity {
 
-    Fragment fragment;
+    private boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ public class ManageActivity extends MyActivity {
         if (actionBar != null)
             actionBar.setDisplayHomeAsUpEnabled(false);
 
-        fragment = new FragmentManage();
+        Fragment fragment = new FragmentManage();
 
 
         if (savedInstanceState == null) {
@@ -51,6 +53,20 @@ public class ManageActivity extends MyActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Appuyez encore une fois pour quitter", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+
+            }
+        }, 2000);
     }
 }
+

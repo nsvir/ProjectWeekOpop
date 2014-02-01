@@ -2,11 +2,13 @@ package com.example.projectweek;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Created by svirch_n on 31/01/14.
@@ -21,6 +23,11 @@ public class FragmentManage extends Fragment implements View.OnClickListener {
 
         view.findViewById(R.id.button1).setOnClickListener(this);
         view.findViewById(R.id.button2).setOnClickListener(this);
+
+        Typeface mTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-BoldItalic.ttf");
+
+        ((TextView)view.findViewById(R.id.text1)).setTypeface(mTypeface);
+        ((TextView)view.findViewById(R.id.text2)).setTypeface(mTypeface);
 
         return view;
     }

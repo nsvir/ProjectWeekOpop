@@ -20,8 +20,6 @@ public class CategorieActivity extends MyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentCategorie fragmentCategorie = new FragmentCategorie();
-
         ActionBar actionBar = getActionBar();
 
         if (actionBar != null)

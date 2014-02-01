@@ -64,7 +64,7 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
 
     @Override
     public void onStop() {
-        if (btWasActivated == false)
+        if (!btWasActivated)
             bt.disable();
         super.onStop();
     }
@@ -82,10 +82,8 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
         } else {
             if (!bt.isEnabled()) {
                 btWasActivated = false;
-                if (btAsk = true) {
-                    Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivity(i);
-                    btAsk = false;
+                if (btAsk) {
+                    bt.enable();
                 } else
                     bt.enable();
             } else {

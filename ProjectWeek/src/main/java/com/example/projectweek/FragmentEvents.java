@@ -57,6 +57,7 @@ public class FragmentEvents extends ListFragment {
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(mColor)));
         }
         getListView().setDividerHeight(2);
+        getListView().setBackgroundColor(getResources().getColor(R.color.background));
     }
 
 
