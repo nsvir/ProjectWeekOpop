@@ -75,7 +75,6 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
             }
         }
         savePreference();
-        Toast.makeText(getActivity(), getString(R.string.goodLogInfo), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getActivity(), ManageActivity.class);
         startActivity(intent);
     }

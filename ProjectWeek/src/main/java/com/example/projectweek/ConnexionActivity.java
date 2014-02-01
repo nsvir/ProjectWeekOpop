@@ -1,5 +1,6 @@
 package com.example.projectweek;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -12,7 +13,7 @@ import android.view.MenuItem;
  */
 public class ConnexionActivity extends MyActivity {
 
-    FragmentConnexion fragment = new FragmentConnexion();
+    FragmentConnexion fragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,9 @@ public class ConnexionActivity extends MyActivity {
         setContentView(R.layout.activity_main);
 
         fragment = new FragmentConnexion();
-
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null)
+            actionBar.setDisplayHomeAsUpEnabled(false);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, fragment)
@@ -35,7 +38,7 @@ public class ConnexionActivity extends MyActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.logout:
                 break;
         }

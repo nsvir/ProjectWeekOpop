@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background_Brown">#643652</color>
-    <color name="background_DarkBrown">#452348</color>
-    <color name="background_Yellow">#FDA752</color>
-    <color name="background_Orange">#EA6852</color>
     <color name="background">#292A36</color>
     <color name="color1">#FFA854</color>
     <color name="color2">#EB6753</color>
