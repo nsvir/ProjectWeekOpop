@@ -3,6 +3,7 @@ package com.example.projectweek;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -23,6 +24,7 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
 
     View viewLogin = null;
     View viewPswd = null;
+    private Typeface tp = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,8 +34,14 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
         viewLogin = view.findViewById(R.id.login);
         viewPswd = view.findViewById(R.id.password);
         view.findViewById(R.id.connect).setOnClickListener(this);
-        view.findViewById(R.id.signUp).setOnClickListener(this);
-        view.findViewById(R.id.bluetooth).setOnClickListener(this);
+        view.findViewById(R.id.signUpBt).setOnClickListener(this);
+        tp = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
+        ((TextView) viewLogin).setTypeface(tp);
+        ((TextView) viewPswd).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.signUpWithFacebookTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.signUpTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.connection)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.connect)).setTypeface(tp);
         if (getPreference())
             checkLoginInfo();
         return (view);
@@ -45,32 +53,10 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
             case R.id.connect:
                 checkLoginInfo();
                 break;
-            case R.id.signUp:
+            case R.id.signUpBt:
                 Intent intent = new Intent(getActivity(), SignupActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.bluetooth:
-                bluetooth();
-                break;
-        }
-    }
-
-    BluetoothAdapter bt;
-
-    public void bluetooth() {
-        bt = BluetoothAdapter.getDefaultAdapter();
-        //get bluetooth code to print bt (optional)
-        //tv.setText("BT:"+bt);
-        //Check Availability of bluetooth
-        if (bt == null) {
-            Toast.makeText(getActivity(), "Bluetooth Not Available in device", Toast.LENGTH_SHORT).show();
-        } else {
-            if (!bt.isEnabled()) {
-                Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivity(i);
-            } else {
-                bt.disable();
-            }
         }
     }
 
