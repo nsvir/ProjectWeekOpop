@@ -22,12 +22,10 @@ public class CategorieActivity extends MyActivity {
 
         FragmentCategorie fragmentCategorie = new FragmentCategorie();
 
-        String[] color = fragmentCategorie.getColor();
-
         ActionBar actionBar = getActionBar();
 
-        if (actionBar != null && color != null && color.length > 0)
-            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(color[color.length - 1])));
+        if (actionBar != null)
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color7)));
 
         setTitle("CATEGORIE");
 

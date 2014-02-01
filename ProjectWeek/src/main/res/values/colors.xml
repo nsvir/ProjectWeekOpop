@@ -4,4 +4,13 @@
     <color name="background_DarkBrown">#452348</color>
     <color name="background_Yellow">#FDA752</color>
     <color name="background_Orange">#EA6852</color>
+    <color name="background">#292A36</color>
+    <color name="color1">#FFA854</color>
+    <color name="color2">#EB6753</color>
+    <color name="color3">#ED7280</color>
+    <color name="color4">#C06E86</color>
+    <color name="color5">#AF606D</color>
+    <color name="color6">#663653</color>
+    <color name="color7">#462446</color>
+
 </resources>

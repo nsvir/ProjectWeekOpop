@@ -1,142 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/background"
     android:layout_width="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
+        android:padding="35dp"
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:id="@+id/imageView2"
-            android:layout_marginLeft="43dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="39dp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/icone_boutique"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="38 RUE DE BETHUNE\n59800 LILLE\n03 20 15 99 80"
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="40dp"
-            android:layout_alignTop="@+id/imageView2"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="false" />
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:text="38 RUE DE BETHUNE\n59800 LILLE\n03 20 15 99 80"/>
 
-        <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="100dp"
-            android:id="@+id/scrollView"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/imageView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_below="@+id/imageView2"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+    <TextView
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="Zara est l'une des principales entreprises internationales de mode femmes, hommes et enfants."/>
 
+    <TextView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color3"
+        android:text="LES OP"
+        android:textStyle="bold"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Zara est l'une des principales entreprises internationales de mode femmes, hommes et enfants. sdfsdfsdfsdfsddfsdfsdfsdfsdfsddfsdfsf\nfer\ndsed"
-                    android:id="@+id/textView2"
-                    android:layout_marginTop="10dp"
-                    android:layout_below="@+id/imageButton"
-                    android:layout_marginLeft="10dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:id="@+id/container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             </LinearLayout>
         </ScrollView>
+</LinearLayout>
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/scrollView2"
-            android:layout_below="@+id/scrollView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="33dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true">
 
-            <RelativeLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="400dp"
-                android:clickable="false"
-                android:gravity="top">
+<!--<RelativeLayout-->
+<!--android:orientation="horizontal"-->
+<!--android:layout_width="fill_parent"-->
+<!--android:layout_height="fill_parent"-->
+<!--android:layout_alignParentTop="true"-->
+<!--android:layout_alignParentLeft="true"-->
+<!--android:layout_alignParentStart="true">-->
 
-                <TextView
-                    android:layout_width="250dp"
-                    android:layout_height="80dp"
-                    android:text="1. Déçu\nLe magasin est mal rangé. Les étalages sont éparpillés."
-                    android:id="@+id/textView3"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/imageView"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="27dp" />
 
-                <TextView
-                    android:layout_width="250dp"
-                    android:layout_height="80dp"
-                    android:text="2. De la merde\n Wesh c'est quoi ce bordel, niquez vos mères a tous !"
-                    android:layout_below="@+id/textView3"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:id="@+id/textView4" />
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/imageView"
-                    android:layout_alignTop="@+id/textView4"
-                    android:layout_alignLeft="@+id/imageView"
-                    android:layout_alignStart="@+id/imageView" />
 
-                <TextView
-                    android:layout_width="250dp"
-                    android:layout_height="80dp"
-                    android:text="3. Sympa\nLa nouvelle collection est chouette. Je viens d'acheter ce petit ensemble pour l'été"
-                    android:layout_below="@+id/textView4"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/imageView"
-                    android:layout_below="@+id/textView4"
-                    android:layout_alignLeft="@+id/imageView"
-                    android:layout_alignStart="@+id/imageView" />
+<!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+    <!--android:text="38 RUE DE BETHUNE\n59800 LILLE\n03 20 15 99 80"-->
+    <!--android:id="@+id/textView"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginRight="40dp"-->
+    <!--android:layout_alignTop="@+id/imageView2"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignParentEnd="false" />-->
 
-            </RelativeLayout>
-        </ScrollView>
 
-    </RelativeLayout>
+<!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:text="Zara est l'une des principales entreprises internationales de mode femmes, hommes et enfants."-->
+    <!--android:id="@+id/textView2"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_below="@+id/imageButton"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignParentEnd="true" />-->
 
-</RelativeLayout>
+
+<!--<ScrollView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/scrollView2"-->
+    <!--android:layout_below="@+id/scrollView"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_marginTop="33dp"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_alignParentBottom="true">-->
+
+    <!--<RelativeLayout-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="400dp"-->
+        <!--android:clickable="false"-->
+        <!--android:gravity="top">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="250dp"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:text="1. Déçu\nLe magasin est mal rangé. Les étalages sont éparpillés."-->
+            <!--android:id="@+id/textView3"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentEnd="true" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:id="@+id/imageView"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginLeft="27dp" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="250dp"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:text="2. De la merde\n Wesh c'est quoi ce bordel, niquez vos mères a tous !"-->
+            <!--android:layout_below="@+id/textView3"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:id="@+id/textView4" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:id="@+id/imageView"-->
+            <!--android:layout_alignTop="@+id/textView4"-->
+            <!--android:layout_alignLeft="@+id/imageView"-->
+            <!--android:layout_alignStart="@+id/imageView" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="250dp"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:text="3. Sympa\nLa nouvelle collection est chouette. Je viens d'acheter ce petit ensemble pour l'été"-->
+            <!--android:layout_below="@+id/textView4"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentEnd="true" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:id="@+id/imageView"-->
+            <!--android:layout_below="@+id/textView4"-->
+            <!--android:layout_alignLeft="@+id/imageView"-->
+            <!--android:layout_alignStart="@+id/imageView" />-->
+
+    <!--</RelativeLayout>-->
+<!--</ScrollView>-->
+
+<!--</RelativeLayout>-->

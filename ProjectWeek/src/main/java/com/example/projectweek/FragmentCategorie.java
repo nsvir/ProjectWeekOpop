@@ -25,15 +25,16 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
 
     private Typeface mTypeface = null;
 
-    private String[] mColor = {
-            "#FFA854",
-            "#EB6753",
-            "#ED7280",
-            "#C06E86",
-            "#AF606D",
-            "#663653",
-            "#462446"
+    private int[] mColor = {
+            R.color.color1,
+            R.color.color2,
+            R.color.color3,
+            R.color.color4,
+            R.color.color5,
+            R.color.color6,
+            R.color.color7
     };
+
 
     private String[] mArray = {
             "RESTAURANT",
@@ -67,17 +68,13 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
                 newView = inflater.inflate(R.layout.item_categorie, null);
                 ((TextView) newView.findViewById(R.id.text)).setText(mArray[i]);
                 ((TextView) newView.findViewById(R.id.text)).setTypeface(mTypeface);
-                newView.setBackgroundColor(Color.parseColor(mColor[i]));
+                newView.setBackgroundColor(getResources().getColor(mColor[i]));
                 newView.setOnClickListener(this);
                 viewGroup.addView(newView, param);
             }
 
         }
         return view;
-    }
-
-    public String[] getColor() {
-        return mColor;
     }
 
     @Override
@@ -90,7 +87,7 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(getActivity(), EventActivity.class);
-        String message = mColor[((ViewGroup) view.getParent()).indexOfChild(view)];
+        String message = getActivity().getResources().getString(mColor[((ViewGroup) view.getParent()).indexOfChild(view)]);
         intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
         String title = mArray[((ViewGroup) view.getParent()).indexOfChild(view)];
         intent.putExtra(MyActivity.EXTRA_TITLE, title);
