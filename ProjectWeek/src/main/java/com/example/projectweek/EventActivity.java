@@ -32,6 +32,7 @@ public class EventActivity extends MyActivity {
 
         Intent intent = getIntent();
         fragmentEvents.setColor(intent.getStringExtra(MyActivity.EXTRA_MESSAGE));
+        setTitle(intent.getStringExtra(MyActivity.EXTRA_TITLE));
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()

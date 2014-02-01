@@ -36,6 +36,8 @@ public class FragmentEvents extends ListFragment {
 
     private ArrayList<String> mArray = new ArrayList<String>();
     private String mColor = null;
+    private String mTitle = null;
+
 
     @Override
     public void onResume() {
@@ -57,6 +59,10 @@ public class FragmentEvents extends ListFragment {
 
     public void setColor(String color) {
         mColor = color;
+    }
+
+    public void setTitle(String title) {
+        mTitle = title;
     }
 
 

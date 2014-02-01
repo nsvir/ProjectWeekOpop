@@ -21,6 +21,8 @@ public class CategorieActivity extends MyActivity {
 
         getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#355C7C")));
 
+        setTitle("CATEGORIE");
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, new FragmentCategorie())

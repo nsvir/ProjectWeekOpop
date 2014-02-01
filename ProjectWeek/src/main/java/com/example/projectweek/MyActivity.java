@@ -2,6 +2,9 @@ package com.example.projectweek;
 
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.TypefaceSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -13,6 +16,7 @@ import android.view.MenuItem;
 public class MyActivity extends ActionBarActivity{
 
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public final static String EXTRA_TITLE = "com.example.myfirstapp.TITLE";
 
     public void logout() {
         SharedPreferences sp = getSharedPreferences("loginInfo", 0);
@@ -39,5 +43,13 @@ public class MyActivity extends ActionBarActivity{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void setTitle(CharSequence title) {
+
+        SpannableString s = new SpannableString(title);
+        s.setSpan(new TypefaceSpan("Roboto-Bold.ttf"), 0, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        getActionBar().setTitle(s);
     }
 }

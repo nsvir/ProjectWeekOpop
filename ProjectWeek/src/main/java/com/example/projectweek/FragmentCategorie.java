@@ -88,6 +88,8 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
         Intent intent = new Intent(getActivity(), EventActivity.class);
         String message = mColor[((ViewGroup)view.getParent()).indexOfChild(view)];
         intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
+        String title = mArray[((ViewGroup)view.getParent()).indexOfChild(view)];
+        intent.putExtra(MyActivity.EXTRA_TITLE, title);
         startActivity(intent);
     }
 
