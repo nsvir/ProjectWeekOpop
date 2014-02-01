@@ -1,46 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <Button
-        android:id="@+id/bluetooth"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Bluetooth"/>
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:background="@color/background_Brown">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:orientation="horizontal"
+        android:paddingTop="25dp">
+
+        <Button
+            android:id="@+id/signUpWithFacebookBt"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:text="f"
+            android:layout_weight="1"
+            android:background="@color/background_Yellow" />
+
+        <Button
+            android:id="@+id/signUpBt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=">"
+            android:layout_weight="1"
+            android:background="@color/background_Orange" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ButtonTxt"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/signUpWithFacebookTxt"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:text="@string/signUpWithFacebook"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/signUpTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/signUp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/connection"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:text="@string/connection"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:paddingTop="25dp"
+        android:textSize="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/login_LeftRightMargin"
+        android:layout_marginRight="@dimen/login_LeftRightMargin"
+        android:layout_margin="20dp">
 
         <EditText
             android:id="@+id/login"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="@string/login"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:background="@color/background_DarkBrown"
+            android:textColorHint="@android:color/white"
+            android:padding="10dp"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/login_LeftRightMargin"
+        android:layout_marginRight="@dimen/login_LeftRightMargin">
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:singleLine="true"
-            android:password="true" />
+            android:password="true"
+            android:textColor="@android:color/white"
+            android:background="@color/background_DarkBrown"
+            android:textColorHint="@android:color/white"
+            android:padding="10dp"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
 
         <Button
             android:id="@+id/connect"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:text="@string/connect" />
-
-        <Button
-            android:id="@+id/signUp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="@string/signUp" />
+            android:text="@string/connect"
+            android:layout_gravity="bottom"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:background="@color/background_Yellow"
+            android:minHeight="35dp"/>
     </LinearLayout>
-</RelativeLayout>
+
+</LinearLayout>

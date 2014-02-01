@@ -13,8 +13,10 @@
     <string name="password">Mot de passe</string>
     <string name="wrongLogInfo">Identifiants incorrectes</string>
     <string name="goodLogInfo">Connecté</string>
-    <string name="connect">Connection</string>
-    <string name="signUp">S\'enregistrer</string>
+    <string name="connect">Entrer</string>
+    <string name="connection">Connexion</string>
+    <string name="signUp">S\'inscrire</string>
+    <string name="signUpWithFacebook">S\'inscrire avec\nFacebook</string>
 
     <string name="firstname">Prénom</string>
     <string name="lastname">Nom</string>
