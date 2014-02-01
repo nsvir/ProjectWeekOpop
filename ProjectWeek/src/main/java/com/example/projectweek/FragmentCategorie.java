@@ -21,7 +21,7 @@ import android.widget.TextView;
  * nicolas.svirchevsky@epitech.eu
  */
 
-public class FragmentCategorie extends Fragment {
+public class FragmentCategorie extends Fragment implements View.OnClickListener {
 
     private Typeface mTypeface = null;
 
@@ -65,9 +65,10 @@ public class FragmentCategorie extends Fragment {
             viewGroup = (ViewGroup) view.findViewById(R.id.linear);
             for (int i = 0; i < mArray.length; i++) {
                 newView = inflater.inflate(R.layout.item_categorie, null);
-                ((TextView)newView.findViewById(R.id.text)).setText(mArray[i]);
-                ((TextView)newView.findViewById(R.id.text)).setTypeface(mTypeface);
+                ((TextView) newView.findViewById(R.id.text)).setText(mArray[i]);
+                ((TextView) newView.findViewById(R.id.text)).setTypeface(mTypeface);
                 newView.setBackgroundColor(Color.parseColor(mColor[i]));
+                newView.setOnClickListener(this);
                 viewGroup.addView(newView, param);
             }
 
@@ -80,6 +81,14 @@ public class FragmentCategorie extends Fragment {
         super.onResume();
 
         mTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), EventActivity.class);
+        String message = mColor[((ViewGroup)view.getParent()).indexOfChild(view)];
+        intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 
 //    @Override
