@@ -1,5 +1,6 @@
 package com.example.projectweek;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -7,16 +8,21 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 /**
  * Created by svirch_n on 30/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
-public class QuestionnaireActivity extends MyActivity {
+public class QuestionnaireActivity extends MyActivity implements IDialogResponse{
 
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private IPictureTaker mPictureTaker = null;
+    static private boolean mAsk = true;
+    private BluetoothDialog mBluetoothDialog = null;
+    private BluetoothAdapter bt;
+    private boolean btWasActivated = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +35,44 @@ public class QuestionnaireActivity extends MyActivity {
                     .commit();
         }
 
-        BluetoothDialog bluetoothDialog = new BluetoothDialog(this);
-
-        bluetoothDialog.show(getFragmentManager(), null);
-
+        bt = BluetoothAdapter.getDefaultAdapter();
     }
 
+    public void onPositiveButton() {
+        if (!bt.isEnabled())
+            bt.enable();
+        mAsk = false;
+    }
 
+    public void onNegativeButton() {
+        mAsk = true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        bluetoothManager();
+        if (!bt.isEnabled() && mAsk == false)
+            bt.enable();
+    }
+
+    @Override
+    public void onStop() {
+        if (!btWasActivated)
+            bt.disable();
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (mBluetoothDialog != null && mBluetoothDialog.isVisible()) {
+            mBluetoothDialog.dismiss();
+            mAsk = true;
+        }
+    }
 
     /*      Picture methods     */
 
@@ -71,5 +108,24 @@ public class QuestionnaireActivity extends MyActivity {
     }
 
     /*      End Share methods     */
+
+
+    public void bluetoothManager() {
+        if (bt == null) {
+            Toast.makeText(this, "Bluetooth Not Available in device", Toast.LENGTH_SHORT).show();
+        } else {
+            if (!bt.isEnabled()) {
+                btWasActivated = false;
+                if (mAsk) {
+                    mBluetoothDialog = new BluetoothDialog(this);
+                    mBluetoothDialog.show(getFragmentManager(), null);
+                } else
+                    bt.enable();
+            } else {
+                btWasActivated = true;
+            }
+        }
+    }
+
 
 }

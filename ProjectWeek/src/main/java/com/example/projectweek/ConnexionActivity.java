@@ -38,16 +38,6 @@ public class ConnexionActivity extends MyActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.logout:
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     protected void finishMe() {
 
     }

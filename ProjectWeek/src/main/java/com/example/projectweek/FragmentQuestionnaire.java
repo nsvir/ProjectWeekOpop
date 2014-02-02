@@ -22,10 +22,6 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
 
     }
 
-    BluetoothAdapter bt;
-    boolean btWasActivated = false;
-    static boolean btAsk = true;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -36,8 +32,6 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
             view.findViewById(R.id.imageButton).setOnClickListener(this);
             view.findViewById(R.id.shareButton).setOnClickListener(this);
         }
-        bt = BluetoothAdapter.getDefaultAdapter();
-        bluetoothManager();
         return (view);
     }
 
@@ -62,33 +56,4 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
         setImage(bitmap);
     }
 
-    @Override
-    public void onStop() {
-        if (!btWasActivated)
-            bt.disable();
-        super.onStop();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (!bt.isEnabled())
-            bt.enable();
-    }
-
-    public void bluetoothManager() {
-        if (bt == null) {
-            Toast.makeText(getActivity(), "Bluetooth Not Available in device", Toast.LENGTH_SHORT).show();
-        } else {
-            if (!bt.isEnabled()) {
-                btWasActivated = false;
-                if (btAsk) {
-                    bt.enable();
-                } else
-                    bt.enable();
-            } else {
-                btWasActivated = true;
-            }
-        }
-    }
 }

@@ -5,9 +5,15 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.TypefaceSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -27,45 +33,81 @@ import java.util.regex.Pattern;
 
 public class BluetoothDialog extends DialogFragment {
 
-    private Dialog mDialog;
-    private Activity mContext;
+    private AlertDialog mDialog;
+    static private Activity mContext;
     private View mView;
+    static private IDialogResponse response;
+
+    public BluetoothDialog() {
+    }
 
     public BluetoothDialog(Activity context) {
         mContext = context;
+        response = (IDialogResponse) context;
     }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
+        SpannableString s = new SpannableString("Non");
+        s.setSpan(new TypefaceSpan("Roboto-BoldItalic.ttf"), 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        s.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.color2)), 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 
-        builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(s, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                response.onNegativeButton();
                 dialog.dismiss();
             }
         });
 
-        builder.setPositiveButton("Oui", null); /* null cause override in onStart */
+        builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                response.onPositiveButton();
+            }
+        });
 
         builder.setView(onCreateView());
 
         mDialog = builder.create();
+
+        mDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                Button positive = mDialog.getButton(Dialog.BUTTON_POSITIVE);
+                if (positive != null) {
+                    positive.setBackgroundColor(getResources().getColor(R.color.color2));
+                    positive.setTextColor(getResources().getColor(android.R.color.white));
+                    if (mContext != null)
+                        positive.setTypeface(Typeface.createFromAsset(mContext.getAssets(), "fonts/Roboto-Bold.ttf"));
+                }
+
+                Button negative = mDialog.getButton(Dialog.BUTTON_NEGATIVE);
+                if (negative != null) {
+                    negative.setBackgroundColor(getResources().getColor(R.color.color2));
+                    negative.setTextColor(getResources().getColor(android.R.color.white));
+                    if (mContext != null)
+                        negative.setTypeface(Typeface.createFromAsset(mContext.getAssets(), "fonts/Roboto-Bold.ttf"));
+                }
+            }
+        });
         return mDialog;
     }
 
     public View onCreateView() {
-        mView = mContext.getLayoutInflater().inflate(R.layout.dialog_bluetooth, null);
+        if (mContext != null) {
+            mView = mContext.getLayoutInflater().inflate(R.layout.dialog_bluetooth, null);
 
-        if (mView == null)
-            return null;
+            if (mView == null)
+                return null;
 
 
-        Typeface mTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
-        ((TextView)mView.findViewById(R.id.text)).setTypeface(mTypeface);
-
+            Typeface mTypeface = Typeface.createFromAsset(mContext.getAssets(), "fonts/Roboto-Bold.ttf");
+            ((TextView) mView.findViewById(R.id.text)).setTypeface(mTypeface);
+        }
         return mView;
     }
 }

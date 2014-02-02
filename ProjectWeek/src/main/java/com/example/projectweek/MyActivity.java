@@ -92,6 +92,7 @@ public class MyActivity extends ActionBarActivity {
     public void setTitle(CharSequence title) {
         if (title != null) {
             ActionBar actionBar = getActionBar();
+
             SpannableString s = new SpannableString(title);
             s.setSpan(new TypefaceSpan("Roboto-Bold.ttf"), 0, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             if (actionBar != null)
