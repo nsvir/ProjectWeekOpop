@@ -53,7 +53,7 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
         super.onResume();
 
         bluetoothManager();
-        if (!bt.isEnabled() && mAsk == false)
+        if (!bt.isEnabled() && !mAsk)
             bt.enable();
     }
 
@@ -68,9 +68,8 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
     protected void onPause() {
         super.onPause();
 
-        if (mBluetoothDialog != null && mBluetoothDialog.isVisible()) {
+        if (mBluetoothDialog != null) {
             mBluetoothDialog.dismiss();
-            mAsk = true;
         }
     }
 

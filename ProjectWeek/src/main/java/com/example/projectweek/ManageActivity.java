@@ -25,8 +25,7 @@ public class ManageActivity extends MyActivity {
         ActionBar actionBar = getActionBar();
 
         if (actionBar != null)
-            actionBar.setDisplayHomeAsUpEnabled(false);
-
+            actionBar.hide();
         Fragment fragment = new FragmentManage();
 
 
@@ -35,17 +34,6 @@ public class ManageActivity extends MyActivity {
                     .replace(R.id.container, fragment)
                     .commit();
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.account:
-                Intent intent = new Intent(this, AccountActivity.class);
-                startActivity(intent);
-                break;
-        }
-        return true;
     }
 
     @Override

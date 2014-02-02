@@ -23,6 +23,7 @@ public class FragmentManage extends Fragment implements View.OnClickListener {
 
         view.findViewById(R.id.button1).setOnClickListener(this);
         view.findViewById(R.id.button2).setOnClickListener(this);
+        view.findViewById(R.id.account).setOnClickListener(this);
 
         Typeface mTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-BoldItalic.ttf");
 
@@ -40,6 +41,10 @@ public class FragmentManage extends Fragment implements View.OnClickListener {
                 break;
             case R.id.button2:
                 startActivity(new Intent(getActivity(), CategorieActivity.class));
+                break;
+            case R.id.account:
+                Intent intent = new Intent(getActivity(), AccountActivity.class);
+                startActivity(intent);
                 break;
         }
     }
