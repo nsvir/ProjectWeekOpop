@@ -6,4 +6,5 @@
     <dimen name="login_LeftRightMargin">30dp</dimen>
     <dimen name="login_InfoSize">50dp</dimen>
     <dimen name="buttonMargin">5dp</dimen>
+    <dimen name="profile_line">15dp</dimen>
 </resources>
