@@ -45,12 +45,6 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
         bt = BluetoothAdapter.getDefaultAdapter();
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.questionnaire, menu);
-//        return true;
-//    }
-
     public void onPositiveButton() {
         if (!bt.isEnabled())
             bt.enable();
@@ -59,6 +53,11 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
 
     public void onNegativeButton() {
         mAsk = true;
+        finish();
+    }
+
+    @Override
+    public void onCancelButton() {
         finish();
     }
 
@@ -136,6 +135,10 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
                 } else
                     bt.enable();
             } else {
+                if (mAsk) {
+                    mBluetoothDialog = new BluetoothDialog(this);
+                    mBluetoothDialog.show(getFragmentManager(), null);
+                }
                 btWasActivated = true;
             }
         }
@@ -143,8 +146,6 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
 
     @Override
     public void onBackPressed() {
-        if (mBluetoothDialog != null && mBluetoothDialog.isVisible())
-            finish();
         super.onBackPressed();
     }
 }

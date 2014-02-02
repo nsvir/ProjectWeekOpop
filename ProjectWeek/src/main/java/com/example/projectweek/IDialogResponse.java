@@ -8,4 +8,5 @@ public interface IDialogResponse {
 
     public void onPositiveButton();
     public void onNegativeButton();
+    public void onCancelButton();
 }

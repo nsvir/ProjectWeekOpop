@@ -92,9 +92,15 @@ public class BluetoothDialog extends DialogFragment {
         });
 
         mDialog.setCanceledOnTouchOutside(false);
+
         return mDialog;
     }
 
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
+        response.onCancelButton();
+    }
 
     public View onCreateView() {
         if (mContext != null) {
