@@ -1,6 +1,5 @@
 package com.example.projectweek;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -14,6 +13,7 @@ import android.widget.TextView;
  * Created by svirch_n on 31/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
+
 public class FragmentManage extends Fragment implements View.OnClickListener {
 
     @Override
@@ -29,8 +29,8 @@ public class FragmentManage extends Fragment implements View.OnClickListener {
 
         Typeface mTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-BoldItalic.ttf");
 
-        ((TextView)view.findViewById(R.id.text1)).setTypeface(mTypeface);
-        ((TextView)view.findViewById(R.id.text2)).setTypeface(mTypeface);
+        ((TextView) view.findViewById(R.id.text1)).setTypeface(mTypeface);
+        ((TextView) view.findViewById(R.id.text2)).setTypeface(mTypeface);
 
         return view;
     }

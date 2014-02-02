@@ -26,15 +26,18 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
     private BluetoothDialog mBluetoothDialog = null;
     private BluetoothAdapter bt;
     private boolean btWasActivated = false;
+    private FragmentQuestionnaire fragmentQuestionnaire;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        fragmentQuestionnaire = new FragmentQuestionnaire();
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new FragmentQuestionnaire())
+                    .replace(R.id.container, fragmentQuestionnaire)
                     .commit();
         }
 
@@ -146,6 +149,7 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (fragmentQuestionnaire.backPressed())
+            super.onBackPressed();
     }
 }

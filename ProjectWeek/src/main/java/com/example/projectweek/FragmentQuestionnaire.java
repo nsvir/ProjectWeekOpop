@@ -79,10 +79,38 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
             }
     }
 
+    private void getPoint() {
+        View view = getView();
+
+        ((ViewGroup)view).removeAllViews();
+
+        ((ViewGroup)view).addView(getActivity().getLayoutInflater().inflate(R.layout.fragment_questionnaire_thanks, null));
+
+        view.findViewById(R.id.validate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
+    }
+
+    public boolean backPressed()
+    {
+        if (numberQuestion <= 0 || numberQuestion >= mQuestions.length)
+            return (true);
+        numberQuestion--;
+        fillView();
+        return false;
+    }
+
     @Override
     public void onClick(View view) {
         numberQuestion++;
-        fillView();
+
+        if (numberQuestion < mQuestions.length)
+            fillView();
+        else
+            getPoint();
     }
 
     public void setImage(Bitmap bitmap) {
@@ -95,12 +123,3 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
     }
 
 }
-
-//        switch (view.getId()) {
-//            case R.id.imageButton:
-//                ((QuestionnaireActivity) getActivity()).takeAPicture(this);
-//                break;
-//            case R.id.shareButton:
-//                ((QuestionnaireActivity) getActivity()).shareSomething();
-//                break;
-//        }

@@ -1,7 +1,9 @@
 package com.example.projectweek;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -46,5 +48,13 @@ public class ConnexionActivity extends MyActivity {
     @Override
     protected void finishMe() {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent resultData = new Intent();
+        resultData.putExtra(MyActivity.EXTRA_MESSAGE, "close");
+        setResult(0, resultData);
+        finish();
     }
 }

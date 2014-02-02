@@ -45,6 +45,15 @@ public class FragmentAvis extends Fragment {
             viewGroup.addView(newView);
         }
 
+        newView = inflater.inflate(R.layout.item_avis, null);
+
+        if (viewGroup != null && newView != null)
+        {
+            ((TextView)newView.findViewById(R.id.title)).setText("3. Au Top!");
+            ((TextView)newView.findViewById(R.id.content)).setText("Je viens de dévaliser le magasin");
+            ((ImageView)newView.findViewById(R.id.icone)).setImageDrawable(getResources().getDrawable(R.drawable.photo_sophie));
+            viewGroup.addView(newView);
+        }
 
         return view;
     }

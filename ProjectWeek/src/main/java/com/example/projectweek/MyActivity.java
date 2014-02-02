@@ -62,7 +62,7 @@ public class MyActivity extends ActionBarActivity {
             return (true);
         if (signUpLogin == null || signUpPswd == null)
             return (false);
-        if (signUpLogin.equals(currentLogin) == true && signUpPswd.equals(currentPswd) == true)
+        if (signUpLogin.equals(currentLogin) && signUpPswd.equals(currentPswd))
             return (true);
         return (false);
     }
@@ -91,14 +91,6 @@ public class MyActivity extends ActionBarActivity {
     @Override
     public void setTitle(CharSequence title) {
         super.setTitle(title);
-//        if (title != null) {
-//            ActionBar actionBar = getActionBar();
-//
-////            SpannableString s = new SpannableString(title);
-////            s.setSpan(new TypefaceSpan("Roboto-Bold.ttf"), 0, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//            if (actionBar != null)
-//                actionBar.setTitle(title);
-//        }
     }
 
     @Override
