@@ -53,7 +53,7 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
         super.onResume();
 
         bluetoothManager();
-        if (!bt.isEnabled() && !mAsk)
+        if (bt != null && !bt.isEnabled() && !mAsk)
             bt.enable();
     }
 
