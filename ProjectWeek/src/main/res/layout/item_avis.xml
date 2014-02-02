@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:paddingTop="8dp"
             android:id="@+id/icone"
             android:layout_gravity="top"
             android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:text="1. Decu"
                 android:textColor="@color/color3"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 android:layout_height="wrap_content" />
 
             <TextView
@@ -38,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
+                android:textSize="14sp"
                 android:text="Je suis plutot satisfaite de ce magasin!"/>
 
 
