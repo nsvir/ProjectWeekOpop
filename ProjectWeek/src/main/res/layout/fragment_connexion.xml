@@ -95,7 +95,7 @@
             android:textColor="@android:color/white"
             android:background="@color/color7"
             android:textColorHint="@android:color/white"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:inputType="text"
             android:singleLine="true" />
     </LinearLayout>
@@ -122,7 +122,7 @@
             android:background="@color/color7"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:inputType="textPassword" />
     </LinearLayout>
 
