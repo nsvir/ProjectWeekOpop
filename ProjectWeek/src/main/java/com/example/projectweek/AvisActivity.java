@@ -21,7 +21,7 @@ public class AvisActivity extends MyActivity {
         Intent intent = getIntent();
         ActionBar actionBar = getActionBar();
         String color = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
-        if (actionBar != null)
+        if (actionBar != null && color != null)
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(color)));
         setTitle(intent.getStringExtra(MyActivity.EXTRA_TITLE));
 

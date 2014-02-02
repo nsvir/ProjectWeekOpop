@@ -1,6 +1,8 @@
 package com.example.projectweek;
 
+import android.app.ActionBar;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.Menu;
@@ -17,6 +19,11 @@ public class AccountActivity extends MyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setTitle("COMPTE");
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null)
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color2)));
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
