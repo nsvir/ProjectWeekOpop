@@ -115,4 +115,5 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
         intent.putExtra(MyActivity.EXTRA_TITLE, title);
         startActivity(intent);
     }
+
 }

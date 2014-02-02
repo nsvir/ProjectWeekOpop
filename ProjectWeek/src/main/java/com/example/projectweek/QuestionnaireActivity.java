@@ -1,8 +1,11 @@
 package com.example.projectweek;
 
+import android.app.ActionBar;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
@@ -14,7 +17,7 @@ import android.widget.Toast;
  * Created by svirch_n on 30/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
-public class QuestionnaireActivity extends MyActivity implements IDialogResponse{
+public class QuestionnaireActivity extends MyActivity implements IDialogResponse {
 
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -35,8 +38,18 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
                     .commit();
         }
 
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null)
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color1)));
+        setTitle("QUESTIONNAIRE");
         bt = BluetoothAdapter.getDefaultAdapter();
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.questionnaire, menu);
+//        return true;
+//    }
 
     public void onPositiveButton() {
         if (!bt.isEnabled())
@@ -46,6 +59,7 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
 
     public void onNegativeButton() {
         mAsk = true;
+        finish();
     }
 
     @Override
@@ -59,7 +73,7 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
 
     @Override
     public void onStop() {
-        if (!btWasActivated)
+        if (bt != null && !btWasActivated)
             bt.disable();
         super.onStop();
     }
@@ -125,6 +139,7 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
             }
         }
     }
+
 
 
 }

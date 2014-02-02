@@ -90,14 +90,15 @@ public class MyActivity extends ActionBarActivity {
 
     @Override
     public void setTitle(CharSequence title) {
-        if (title != null) {
-            ActionBar actionBar = getActionBar();
-
-            SpannableString s = new SpannableString(title);
-            s.setSpan(new TypefaceSpan("Roboto-Bold.ttf"), 0, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            if (actionBar != null)
-                actionBar.setTitle(s);
-        }
+        super.setTitle(title);
+//        if (title != null) {
+//            ActionBar actionBar = getActionBar();
+//
+////            SpannableString s = new SpannableString(title);
+////            s.setSpan(new TypefaceSpan("Roboto-Bold.ttf"), 0, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            if (actionBar != null)
+//                actionBar.setTitle(title);
+//        }
     }
 
     @Override

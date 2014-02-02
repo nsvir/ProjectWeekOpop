@@ -10,6 +10,7 @@ import android.os.Bundle;
  * Created by svirch_n on 31/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
+
 public class AvisActivity extends MyActivity {
 
     @Override

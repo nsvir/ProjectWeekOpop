@@ -29,8 +29,8 @@ import java.util.regex.Pattern;
 
 /**
  * Created by nicolas on 21/10/13.
+ * nicolas.svirchevsky@epitech.eu
  */
-
 public class BluetoothDialog extends DialogFragment {
 
     private AlertDialog mDialog;
@@ -39,6 +39,7 @@ public class BluetoothDialog extends DialogFragment {
     static private IDialogResponse response;
 
     public BluetoothDialog() {
+
     }
 
     public BluetoothDialog(Activity context) {
@@ -50,12 +51,7 @@ public class BluetoothDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
-        SpannableString s = new SpannableString("Non");
-        s.setSpan(new TypefaceSpan("Roboto-BoldItalic.ttf"), 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//        s.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.color2)), 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-
-        builder.setNegativeButton(s, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 response.onNegativeButton();
