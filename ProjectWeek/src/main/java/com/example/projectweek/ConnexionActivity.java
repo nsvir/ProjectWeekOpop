@@ -38,6 +38,11 @@ public class ConnexionActivity extends MyActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void finishMe() {
 
     }
