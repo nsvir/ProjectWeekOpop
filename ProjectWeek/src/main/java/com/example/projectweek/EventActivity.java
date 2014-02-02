@@ -1,11 +1,13 @@
 package com.example.projectweek;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
@@ -28,8 +30,12 @@ public class EventActivity extends MyActivity {
         setContentView(R.layout.activity_main);
 
         ActionBar actionBar = getActionBar();
-        if (actionBar != null)
-            getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#355C7C")));
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(false);
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setDisplayUseLogoEnabled(false);
+        }
 
         fragmentEvents = new FragmentEvents();
 
