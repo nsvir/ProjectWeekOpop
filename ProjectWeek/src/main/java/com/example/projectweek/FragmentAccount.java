@@ -12,7 +12,7 @@ import android.widget.TextView;
  * Created by svirch_n on 01/02/14.
  * nicolas.svirchevsky@epitech.eu
  */
-public class FragmentAccount extends Fragment {
+public class FragmentAccount extends Fragment implements View.OnClickListener {
 
     Typeface tp = null;
 
@@ -30,6 +30,17 @@ public class FragmentAccount extends Fragment {
         ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
         ((TextView) view.findViewById(R.id.profileConditionTxt)).setTypeface(tp);
         ((TextView) view.findViewById(R.id.profileDisconnectTxt)).setTypeface(tp);
+
+        view.findViewById(R.id.profileDisconnectTxt).setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.profileDisconnectTxt:
+                ((MyActivity) getActivity()).logout();
+                break;
+        }
     }
 }
