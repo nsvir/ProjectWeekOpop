@@ -31,18 +31,4 @@ public class ConnexionActivity extends MyActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.logout:
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

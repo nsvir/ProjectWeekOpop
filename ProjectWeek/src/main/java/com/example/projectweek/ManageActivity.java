@@ -40,9 +40,6 @@ public class ManageActivity extends MyActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.logout:
-                logout();
-                break;
             case R.id.account:
                 Intent intent = new Intent(this, AccountActivity.class);
                 startActivity(intent);

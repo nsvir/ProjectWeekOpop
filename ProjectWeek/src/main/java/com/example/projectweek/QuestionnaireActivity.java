@@ -29,6 +29,10 @@ public class QuestionnaireActivity extends MyActivity {
                     .commit();
         }
 
+        BluetoothDialog bluetoothDialog = new BluetoothDialog(this);
+
+        bluetoothDialog.show(getFragmentManager(), null);
+
     }
 
 

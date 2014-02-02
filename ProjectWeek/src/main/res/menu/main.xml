@@ -8,16 +8,5 @@
         android:orderInCategory="40"
         projectWeek:showAsAction="always" />
 
-    <item
-        android:id="@+id/logout"
-        android:title="@string/logout"
-        android:orderInCategory="50"
-        projectWeek:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        projectWeek:showAsAction="never" />
 
 </menu>
