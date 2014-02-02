@@ -52,6 +52,15 @@ public class ManageActivity extends MyActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (!isConnected()) {
+            Intent intent = new Intent(this, ConnexionActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed();
@@ -67,6 +76,11 @@ public class ManageActivity extends MyActivity {
 
             }
         }, 2000);
+    }
+
+    @Override
+    protected void finishMe() {
+
     }
 }
 

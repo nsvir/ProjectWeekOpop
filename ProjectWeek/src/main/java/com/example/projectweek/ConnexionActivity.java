@@ -22,6 +22,7 @@ public class ConnexionActivity extends MyActivity {
 
         fragment = new FragmentConnexion();
         ActionBar actionBar = getActionBar();
+        actionBar.hide();
         if (actionBar != null)
             actionBar.setDisplayHomeAsUpEnabled(false);
         if (savedInstanceState == null) {
@@ -44,5 +45,10 @@ public class ConnexionActivity extends MyActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void finishMe() {
+
     }
 }
