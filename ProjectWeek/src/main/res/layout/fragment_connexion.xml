@@ -48,7 +48,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icone_facebook" />
+                android:src="@drawable/icone_inscrire" />
 
             <TextView
                 android:id="@+id/signUpTxt"
@@ -85,7 +85,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icone_profil"/>
+            android:src="@drawable/icone_pseudo"/>
 
         <EditText
             android:id="@+id/login"
@@ -95,7 +95,6 @@
             android:textColor="@android:color/white"
             android:background="@color/color7"
             android:textColorHint="@android:color/white"
-            android:paddingLeft="10dp"
             android:textSize="12sp"
             android:inputType="text"
             android:singleLine="true" />
@@ -120,6 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/password"
+            android:background="@color/color7"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:textSize="12sp"
