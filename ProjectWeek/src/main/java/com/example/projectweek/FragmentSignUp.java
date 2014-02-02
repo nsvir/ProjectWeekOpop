@@ -46,7 +46,7 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener {
         Editable passwordText = signUpPswd.getText();
 
         //Verification should start here
-        if (loginText != null && passwordText != null && !loginText.toString().equals("") && passwordText.toString().equals("")) {
+        if (loginText != null && passwordText != null && !loginText.toString().equals("") && !passwordText.toString().equals("")) {
             Ed.putString("login", loginText.toString());
             Ed.putString("password", passwordText.toString());
             Ed.commit();

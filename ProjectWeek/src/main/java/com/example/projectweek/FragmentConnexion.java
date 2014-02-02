@@ -42,8 +42,6 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
         ((TextView) view.findViewById(R.id.signUpTxt)).setTypeface(tp);
         ((TextView) view.findViewById(R.id.connection)).setTypeface(tp);
         ((TextView) view.findViewById(R.id.connect)).setTypeface(tp);
-        if (getPreference())
-            checkLoginInfo();
         return (view);
     }
 
@@ -75,20 +73,7 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
             }
         }
         savePreference();
-        Intent intent = new Intent(getActivity(), ManageActivity.class);
-        startActivity(intent);
-    }
-
-    public boolean getPreference() {
-        SharedPreferences sp = getActivity().getSharedPreferences("loginInfo", 0);
-        String spLogin = sp.getString("login", null);
-        String spPswd = sp.getString("password", null);
-
-        if (spLogin == null || spPswd == null)
-            return (false);
-        ((EditText) viewLogin).setText(spLogin, TextView.BufferType.EDITABLE);
-        ((EditText) viewPswd).setText(spPswd, TextView.BufferType.EDITABLE);
-        return (true);
+        getActivity().finish();
     }
 
     public void savePreference() {
