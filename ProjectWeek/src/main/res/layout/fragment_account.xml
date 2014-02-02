@@ -4,17 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/color7">
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="25dp">
 
         <ImageView
             android:id="@+id/profilePicture"
-            android:src="@drawable/photo_rodolpha"
+            android:src="@drawable/photo_zara"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
 
@@ -25,13 +26,12 @@
             android:layout_marginLeft="15dp">
 
             <TextView
-                android:id="@+id/pseudoTxt"
+                android:id="@+id/profilePseudoTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rodolpha_04"
-                android:textStyle="bold"
+                android:text="RODOLPHA_04"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"/>
+                android:textSize="17sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,32 +44,36 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/profileTotalDesTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TOTAL DES"
-                        android:textStyle="bold"
                         android:textColor="@color/color2"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/profilePointsTxt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="POINTS"
-                        android:textStyle="bold"
-                        android:textSize="25sp"
+                        android:textSize="28sp"
                         android:textColor="@color/color2"
-                        android:gravity="center"/>
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="-13dp"/>
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/profilePointsTotTxt"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="13"
                     android:layout_marginLeft="5dp"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:textSize="50sp"
                     android:textColor="@color/color2"
-                    android:gravity="top"/>
+                    android:gravity="top"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="-10dp"/>
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -82,9 +86,8 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:background="@color/color2"
-        android:paddingTop="@dimen/profile_line"
-        android:paddingBottom="@dimen/profile_line"
-        android:layout_marginTop="25dp"/>
+        android:padding="@dimen/profile_line"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:id="@+id/profileEditTxt"
@@ -95,7 +98,7 @@
         android:textSize="20sp"
         android:background="@color/color2"
         android:padding="@dimen/profile_line"
-        android:layout_marginTop="45dp"/>
+        android:layout_marginTop="45dp" />
 
     <TextView
         android:id="@+id/profileConditionTxt"
@@ -105,9 +108,8 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:background="@color/color2"
-        android:paddingTop="@dimen/profile_line"
-        android:paddingBottom="@dimen/profile_line"
-        android:layout_marginTop="45dp"/>
+        android:padding="@dimen/profile_line"
+        android:layout_marginTop="45dp" />
 
     <TextView
         android:id="@+id/profileDisconnectTxt"
@@ -117,7 +119,6 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:background="@color/color2"
-        android:paddingTop="@dimen/profile_line"
-        android:paddingBottom="@dimen/profile_line"
-        android:layout_marginTop="5dp"/>
+        android:padding="@dimen/profile_line"
+        android:layout_marginTop="2dp" />
 </LinearLayout>

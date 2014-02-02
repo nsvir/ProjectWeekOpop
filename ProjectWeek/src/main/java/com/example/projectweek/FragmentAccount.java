@@ -20,12 +20,16 @@ public class FragmentAccount extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
         tp = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
-        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
-        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
-        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
-        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
-        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
 
+        ((TextView) view.findViewById(R.id.profilePseudoTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profileTotalDesTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profilePointsTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profilePointsTotTxt)).setTypeface(tp);
+
+        ((TextView) view.findViewById(R.id.profileSeeOpTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profileConditionTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profileDisconnectTxt)).setTypeface(tp);
         return view;
     }
 }
