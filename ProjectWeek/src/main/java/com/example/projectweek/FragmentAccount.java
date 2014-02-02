@@ -21,6 +21,11 @@ public class FragmentAccount extends Fragment {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
         tp = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
         ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
+        ((TextView) view.findViewById(R.id.profileEditTxt)).setTypeface(tp);
+
         return view;
     }
 }
