@@ -16,8 +16,7 @@
             android:id="@+id/icone"
             android:layout_gravity="top"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icone_boutique" />
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:layout_margin="5dp"

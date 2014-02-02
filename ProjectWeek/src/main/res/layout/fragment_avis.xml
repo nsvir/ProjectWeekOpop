@@ -7,7 +7,7 @@
     android:layout_width="match_parent">
 
     <LinearLayout
-        android:padding="25dp"
+        android:paddingTop="25dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icone_boutique"/>
+            android:src="@drawable/photo_zara"/>
 
         <TextView
             android:layout_weight="1"

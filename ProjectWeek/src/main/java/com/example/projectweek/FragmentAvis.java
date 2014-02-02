@@ -30,7 +30,7 @@ public class FragmentAvis extends Fragment {
         {
             ((TextView)newView.findViewById(R.id.title)).setText("1. Déçu");
             ((TextView)newView.findViewById(R.id.content)).setText("Le magasin est mal rangé. Les étalages sont éparpillés");
-            ((ImageView)newView.findViewById(R.id.icone)).setImageDrawable(getResources().getDrawable(R.drawable.icone_sophie));
+            ((ImageView)newView.findViewById(R.id.icone)).setImageDrawable(getResources().getDrawable(R.drawable.photo_sophie));
             viewGroup.addView(newView);
         }
 
@@ -40,7 +40,7 @@ public class FragmentAvis extends Fragment {
         {
             ((TextView)newView.findViewById(R.id.title)).setText("2. Sympa");
             ((TextView)newView.findViewById(R.id.content)).setText("La nouvelle collection est chouette. Je viens d'acheter ce petit ensemble pour l'été");
-            ((ImageView)newView.findViewById(R.id.icone)).setImageDrawable(getResources().getDrawable(R.drawable.icone_rodolpha));
+            ((ImageView)newView.findViewById(R.id.icone)).setImageDrawable(getResources().getDrawable(R.drawable.photo_rodolpha));
             ((ImageView)newView.findViewById(R.id.image)).setImageDrawable(getResources().getDrawable(R.drawable.photo_avis));
             viewGroup.addView(newView);
         }

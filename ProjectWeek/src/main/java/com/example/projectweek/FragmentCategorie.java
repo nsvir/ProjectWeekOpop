@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,6 +25,16 @@ import android.widget.TextView;
 public class FragmentCategorie extends Fragment implements View.OnClickListener {
 
     private Typeface mTypeface = null;
+
+    private int[] mIcone = {
+            R.drawable.icone_restaurant,
+            R.drawable.icone_hotel,
+            R.drawable.icone_mode,
+            R.drawable.icone_services,
+            R.drawable.icone_culturel,
+            R.drawable.icone_soiree,
+            R.drawable.icone_electronique,
+    };
 
     private int[] mColor = {
             R.color.color1,
@@ -66,11 +77,14 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
             viewGroup = (ViewGroup) view.findViewById(R.id.linear);
             for (int i = 0; i < mArray.length; i++) {
                 newView = inflater.inflate(R.layout.item_categorie, null);
-                ((TextView) newView.findViewById(R.id.text)).setText(mArray[i]);
-                ((TextView) newView.findViewById(R.id.text)).setTypeface(mTypeface);
-                newView.setBackgroundColor(getResources().getColor(mColor[i]));
-                newView.setOnClickListener(this);
-                viewGroup.addView(newView, param);
+                if (newView != null) {
+                    ((TextView) newView.findViewById(R.id.text)).setText(mArray[i]);
+                    ((TextView) newView.findViewById(R.id.text)).setTypeface(mTypeface);
+                    ((ImageView) newView.findViewById(R.id.icone)).setImageDrawable(getResources().getDrawable(mIcone[i]));
+                    newView.setBackgroundColor(getResources().getColor(mColor[i]));
+                    newView.setOnClickListener(this);
+                    viewGroup.addView(newView, param);
+                }
             }
 
         }
@@ -87,9 +101,17 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(getActivity(), EventActivity.class);
-        String message = getActivity().getResources().getString(mColor[((ViewGroup) view.getParent()).indexOfChild(view)]);
+        ViewGroup parent = (ViewGroup) view.getParent();
+
+        String message = null;
+        if (view != null && parent != null)
+            message = getActivity().getResources().getString(mColor[parent.indexOfChild(view)]);
         intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
-        String title = mArray[((ViewGroup) view.getParent()).indexOfChild(view)];
+
+        String title = null;
+        if (parent != null)
+            title = mArray[parent.indexOfChild(view)];
+
         intent.putExtra(MyActivity.EXTRA_TITLE, title);
         startActivity(intent);
     }

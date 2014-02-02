@@ -21,6 +21,8 @@ public class FragmentManage extends Fragment implements View.OnClickListener {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_manage, container, false);
 
+        if (view == null)
+            return null;
         view.findViewById(R.id.button1).setOnClickListener(this);
         view.findViewById(R.id.button2).setOnClickListener(this);
         view.findViewById(R.id.account).setOnClickListener(this);

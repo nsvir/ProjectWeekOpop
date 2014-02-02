@@ -37,7 +37,6 @@ public class FragmentEvents extends ListFragment {
 
     private ArrayList<String> mArray = new ArrayList<String>();
     private String mColor = null;
-    private String mTitle = null;
 
 
     @Override
@@ -65,16 +64,16 @@ public class FragmentEvents extends ListFragment {
         mColor = color;
     }
 
-    public void setTitle(String title) {
-        mTitle = title;
-    }
-
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
         Intent intent = new Intent(getActivity(), AvisActivity.class);
+        String message = mColor;
+        intent.putExtra(MyActivity.EXTRA_MESSAGE, message);
+        String title = mArray.get(position);
+        intent.putExtra(MyActivity.EXTRA_TITLE, title);
         startActivity(intent);
     }
 

@@ -26,4 +26,6 @@
     <string name="account">Compte</string>
     <string name="search">Rechercher</string>
     <string name="borne">Voulez vous vous connecter à la borne ?</string>
+    <string name="none">none</string>
+    <string name="sample">sample</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.projectweek;
 
+import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -26,7 +27,9 @@ public class EventActivity extends MyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#355C7C")));
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null)
+            getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#355C7C")));
 
         fragmentEvents = new FragmentEvents();
 
