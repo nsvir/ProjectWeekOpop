@@ -20,7 +20,7 @@ public class AccountActivity extends MyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("COMPTE");
+        setTitle("PROFIL");
         ActionBar actionBar = getActionBar();
         if (actionBar != null)
             actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color2)));

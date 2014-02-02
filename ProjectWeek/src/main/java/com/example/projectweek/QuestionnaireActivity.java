@@ -126,6 +126,7 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
     public void bluetoothManager() {
         if (bt == null) {
             Toast.makeText(this, "Bluetooth Not Available in device", Toast.LENGTH_SHORT).show();
+            finish();
         } else {
             if (!bt.isEnabled()) {
                 btWasActivated = false;
@@ -140,6 +141,10 @@ public class QuestionnaireActivity extends MyActivity implements IDialogResponse
         }
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        if (mBluetoothDialog != null && mBluetoothDialog.isVisible())
+            finish();
+        super.onBackPressed();
+    }
 }

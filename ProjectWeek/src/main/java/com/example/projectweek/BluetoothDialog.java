@@ -90,8 +90,11 @@ public class BluetoothDialog extends DialogFragment {
                 }
             }
         });
+
+        mDialog.setCanceledOnTouchOutside(false);
         return mDialog;
     }
+
 
     public View onCreateView() {
         if (mContext != null) {

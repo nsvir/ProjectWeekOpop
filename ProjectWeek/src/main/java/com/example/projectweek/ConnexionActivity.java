@@ -22,9 +22,10 @@ public class ConnexionActivity extends MyActivity {
 
         fragment = new FragmentConnexion();
         ActionBar actionBar = getActionBar();
-        actionBar.hide();
-        if (actionBar != null)
+        if (actionBar != null) {
+            actionBar.hide();
             actionBar.setDisplayHomeAsUpEnabled(false);
+        }
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, fragment)
