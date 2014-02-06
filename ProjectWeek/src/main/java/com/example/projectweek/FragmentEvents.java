@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,16 +39,15 @@ public class FragmentEvents extends ListFragment {
     private ArrayList<String> mArray = new ArrayList<String>();
     private String mColor = null;
 
-
     @Override
     public void onResume() {
         super.onResume();
-        mArray.clear();
 
-        for (int i = 0; i < 10; i++)
-            mArray.add("Event " + i);
+        if (mArray.isEmpty())
+            for (int i = 0; i < 10; i++)
+                mArray.add("Event " + i);
 
-        setListAdapter(new MyArray());
+            setListAdapter(new MyArray());
 
         ActionBar actionBar = getActivity().getActionBar();
 
@@ -59,6 +59,11 @@ public class FragmentEvents extends ListFragment {
         getListView().setBackgroundColor(getResources().getColor(R.color.background));
     }
 
+    public void setEvent(String[] array) {
+        mArray.clear();
+        if (array != null)
+            Collections.addAll(mArray, array);
+    }
 
     public void setColor(String color) {
         mColor = color;

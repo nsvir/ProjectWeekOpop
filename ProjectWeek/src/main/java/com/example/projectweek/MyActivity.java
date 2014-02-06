@@ -24,6 +24,7 @@ public class MyActivity extends ActionBarActivity {
 
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     public final static String EXTRA_TITLE = "com.example.myfirstapp.TITLE";
+    public static final String EXTRA_EVENT = "com.example.myfirstapp.EVENT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

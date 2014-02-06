@@ -57,6 +57,16 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
             "ELECTRONIQUE"
     };
 
+    private String[][] mEvent = {
+            {"Le Pinocchio", "La Grande Gamelle", "Le Broc", "Le Bistrot Lillois", "Quai 38"},
+            {"Hotel  Barrière Lille", "L'Hermitage Gantois Hotel", "Best Western Up Hotel", "Suite Novotel Lille Europe", "Kanai Hotel"},
+            {"Camaieu", "Etam", "Jules", "kookai", "Naf Naf", "pimkie", "Stradivarius", "Zara"},
+            {"Artist Hair", "Euromaster", "Institut Form 'Esthetic"},
+            {"Furet du Nord", "Musée d'Histoire Naturelle", "Le Pere Noel est-il un Rocker"},
+            {"La Plage", "Maclaren's Bar", "Le Pirogue", "Le Gotha", "Le Network"},
+            {"E3", "Micromania", "FNAC", "Apple Store", "SFR"},
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +123,9 @@ public class FragmentCategorie extends Fragment implements View.OnClickListener 
             title = mArray[parent.indexOfChild(view)];
 
         intent.putExtra(MyActivity.EXTRA_TITLE, title);
+
+        if (view != null && parent != null)
+            intent.putExtra(MyActivity.EXTRA_EVENT, mEvent[parent.indexOfChild(view)]);
         startActivity(intent);
     }
 
