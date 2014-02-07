@@ -29,6 +29,7 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener {
     EditText signUpPswd = null;
     TextView sexMale = null;
     TextView sexFemale = null;
+    char sex = '0';
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,13 +59,14 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener {
     }
 
     public void selectSex(int id) {
-        // here should you save which sex the person is
         if (id == R.id.sex_m) {
             sexMale.setBackgroundColor(getActivity().getResources().getColor(R.color.color3));
             sexFemale.setBackgroundColor(getActivity().getResources().getColor(R.color.color7));
+            sex = 'm';
         } else {
             sexFemale.setBackgroundColor(getActivity().getResources().getColor(R.color.color3));
             sexMale.setBackgroundColor(getActivity().getResources().getColor(R.color.color7));
+            sex = 'f';
         }
     }
 
@@ -75,13 +77,14 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener {
         Editable passwordText = signUpPswd.getText();
 
         //Verification should start here
-        if (loginText != null && passwordText != null && !loginText.toString().equals("") && !passwordText.toString().equals("")) {
+        if (sex != '0' && loginText != null && passwordText != null && !loginText.toString().equals("") && !passwordText.toString().equals("")) {
             Ed.putString("login", loginText.toString());
             Ed.putString("password", passwordText.toString());
             Ed.commit();
             getActivity().finish();
+        } else {
+            //Should be more precise
+            Toast.makeText(getActivity(), "Informations incorrectes!", Toast.LENGTH_SHORT).show();
         }
-        //Should be more precise
-        Toast.makeText(getActivity(), "Informations incorrectes!", Toast.LENGTH_SHORT).show();
     }
 }

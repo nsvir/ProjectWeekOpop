@@ -54,7 +54,21 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
             case R.id.signUpBt:
                 Intent intent = new Intent(getActivity(), SignupActivity.class);
                 startActivity(intent);
+                setLoginPswd();
                 break;
+        }
+    }
+
+    public void setLoginPswd()
+    {
+        SharedPreferences sp = getActivity().getSharedPreferences("signUpInfo", 0);
+        String signUpLogin = sp.getString("login", null);
+        String signUpPswd = sp.getString("password", null);
+
+        if (signUpLogin != null && !signUpLogin.isEmpty() && signUpPswd != null && !signUpPswd.isEmpty())
+        {
+            ((EditText)viewLogin).setText(signUpLogin);
+            ((EditText)viewPswd).setText(signUpPswd);
         }
     }
 
