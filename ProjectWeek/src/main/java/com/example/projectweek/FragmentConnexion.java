@@ -53,10 +53,18 @@ public class FragmentConnexion extends Fragment implements View.OnClickListener 
                 break;
             case R.id.signUpBt:
                 Intent intent = new Intent(getActivity(), SignupActivity.class);
-                startActivity(intent);
-                setLoginPswd();
+                startActivityForResult(intent, 1); /* 1 does not refer something. */
                 break;
         }
+    }
+
+
+    /* Used to wait the end of SignupActivity */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        setLoginPswd();
     }
 
     public void setLoginPswd()
