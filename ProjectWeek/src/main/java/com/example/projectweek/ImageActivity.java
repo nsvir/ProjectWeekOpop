@@ -5,39 +5,35 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 /**
- * Created by svirch_n on 31/01/14.
+ * Created by Nicolas on 2/7/14.
  * nicolas.svirchevsky@epitech.eu
  */
 
-public class AvisActivity extends MyActivity {
-
-    private String mColor;
+public class ImageActivity extends MyActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        setContentView(R.layout.activity_image);
+
+        ImageView imageView = (ImageView) findViewById(R.id.image);
 
         Intent intent = getIntent();
         ActionBar actionBar = getActionBar();
-        mColor = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
+        String mColor = intent.getStringExtra(MyActivity.EXTRA_EVENT);
 
         if (actionBar != null && mColor != null)
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(mColor)));
-        setTitle(intent.getStringExtra(MyActivity.EXTRA_TITLE));
+        setTitle("RODOLPHA_04");
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new FragmentAvis())
-                    .commit();
+        if (imageView != null) {
+            imageView.setBackgroundColor(getResources().getColor(R.color.background));
+            imageView.setImageDrawable(getResources().getDrawable(R.drawable.photo_avis));
         }
+
     }
-
-    public String getColor() {
-        return (mColor);
-    }
-
-
 }

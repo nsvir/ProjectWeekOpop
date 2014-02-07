@@ -33,4 +33,6 @@
 
     <string name="sex_m">Homme</string>
     <string name="sex_f">Femme</string>
+    <string name="enter_your_text">Tapez votre texte</string>
+    <string name="send">Envoyer</string>
 </resources>
