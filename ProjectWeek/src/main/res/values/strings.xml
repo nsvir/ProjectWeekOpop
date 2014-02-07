@@ -15,13 +15,14 @@
     <string name="goodLogInfo">Connecté</string>
     <string name="connect">Entrer</string>
     <string name="connection">Connexion</string>
-    <string name="signUp">S\'inscrire</string>
+    <string name="signUp">S\'enregistrer</string>
     <string name="signUpWithFacebook">S\'inscrire avec\nFacebook</string>
 
     <string name="firstname">Prénom</string>
     <string name="lastname">Nom</string>
     <string name="email">email</string>
-    <string name="birthdate">Date de Naissance</string>
+    <string name="age">Age</string>
+    <string name="profession">Profession</string>
     <string name="sex">Sex</string>
     <string name="account">Compte</string>
     <string name="search">Rechercher</string>
@@ -29,4 +30,7 @@
     <string name="none">none</string>
     <string name="sample">sample</string>
     <string name="validate">Valider</string>
+
+    <string name="sex_m">Homme</string>
+    <string name="sex_f">Femme</string>
 </resources>

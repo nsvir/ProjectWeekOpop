@@ -19,6 +19,8 @@ public class SignupActivity extends MyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setTitle("INSCRIPTION");
+
         fragment = new FragmentSignUp();
 
         setTitle("S'INSCRIRE");
