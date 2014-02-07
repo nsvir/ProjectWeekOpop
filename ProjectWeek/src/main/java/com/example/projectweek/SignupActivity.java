@@ -19,14 +19,12 @@ public class SignupActivity extends MyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("INSCRIPTION");
-
         fragment = new FragmentSignUp();
 
         setTitle("S'INSCRIRE");
         ActionBar actionBar = getActionBar();
         if (actionBar != null)
-            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color7)));
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color2)));
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, fragment)
