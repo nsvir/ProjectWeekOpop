@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -26,12 +27,17 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener {
 
     EditText signUpLogin = null;
     EditText signUpPswd = null;
+    TextView sexMale = null;
+    TextView sexFemale = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
         View view = inflater.inflate(R.layout.fragment_signup, container, false);
+
+        (sexMale = (TextView) view.findViewById(R.id.sex_m)).setOnClickListener(this);
+        (sexFemale = (TextView) view.findViewById(R.id.sex_f)).setOnClickListener(this);
 
         view.findViewById(R.id.signUp).setOnClickListener(this);
         signUpLogin = ((EditText) view.findViewById(R.id.loginText));
@@ -41,6 +47,28 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.signUp:
+                signUp();
+                break;
+            default:
+                selectSex(view.getId());
+                break;
+        }
+    }
+
+    public void selectSex(int id) {
+        // here should you save which sex the person is
+        if (id == R.id.sex_m) {
+            sexMale.setBackgroundColor(getActivity().getResources().getColor(R.color.color3));
+            sexFemale.setBackgroundColor(getActivity().getResources().getColor(R.color.color7));
+        } else {
+            sexFemale.setBackgroundColor(getActivity().getResources().getColor(R.color.color3));
+            sexMale.setBackgroundColor(getActivity().getResources().getColor(R.color.color7));
+        }
+    }
+
+    public void signUp() {
         SharedPreferences sp = getActivity().getSharedPreferences("signUpInfo", 0);
         SharedPreferences.Editor Ed = sp.edit();
         Editable loginText = signUpLogin.getText();
