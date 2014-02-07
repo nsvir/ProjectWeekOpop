@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="30dp"
+        android:layout_above="@+id/validate"
+        android:padding="10dp"
+        android:gravity="left"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:minWidth="200dp"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:id="@+id/text"
+        android:hint="@string/enter_your_text"
+        android:textColorHint="@android:color/white"
+        android:background="@color/color3"
+        android:inputType="textAutoCorrect"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:id="@id/validate"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/send"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:background="@color/color2"/>
+
+</RelativeLayout>

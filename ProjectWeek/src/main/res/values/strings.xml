@@ -29,4 +29,6 @@
     <string name="none">none</string>
     <string name="sample">sample</string>
     <string name="validate">Valider</string>
+    <string name="enter_your_text">Tapez votre texte</string>
+    <string name="send">Envoyer</string>
 </resources>

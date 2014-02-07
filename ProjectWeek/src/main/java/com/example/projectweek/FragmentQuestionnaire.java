@@ -61,7 +61,7 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
             return;
 
         ((TextView) view.findViewById(R.id.text_number)).setText((numberQuestion + 1) + "");
-        ((TextView) view.findViewById(R.id.text_max)).setText(mQuestions.length + "");
+        ((TextView) view.findViewById(R.id.text_max)).setText((mQuestions.length + 1) + "");
         ((TextView) view.findViewById(R.id.question)).setText(mQuestions[numberQuestion]);
 
         ViewGroup viewGroup = (ViewGroup) view.findViewById(R.id.container);
@@ -79,24 +79,41 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
             }
     }
 
+    private void fillViewAvis() {
+        View view = getView();
+
+        ((TextView) view.findViewById(R.id.text_number)).setText((mQuestions.length + 1) + "");
+        ((TextView) view.findViewById(R.id.text_max)).setText((mQuestions.length + 1) + "");
+        ((TextView) view.findViewById(R.id.question)).setText("Donnez votre avis général");
+
+        ViewGroup parent = (ViewGroup) view.findViewById(R.id.container);
+
+        parent.removeAllViews();
+
+
+        View newView = getActivity().getLayoutInflater().inflate(R.layout.question_textview, null);
+
+        if (newView != null) {
+            parent.addView(newView);
+            view.findViewById(R.id.validate).setOnClickListener(this);
+        }
+    }
+
     private void getPoint() {
         View view = getView();
 
-        ((ViewGroup)view).removeAllViews();
+        ((ViewGroup) view).removeAllViews();
 
-        ((ViewGroup)view).addView(getActivity().getLayoutInflater().inflate(R.layout.fragment_questionnaire_thanks, null));
+        View newView = getActivity().getLayoutInflater().inflate(R.layout.fragment_questionnaire_thanks, null);
 
-        view.findViewById(R.id.validate).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().finish();
-            }
-        });
+        if (newView != null)
+            ((ViewGroup) view).addView(newView);
+
+        view.findViewById(R.id.validate).setOnClickListener(this);
     }
 
-    public boolean backPressed()
-    {
-        if (numberQuestion <= 0 || numberQuestion >= mQuestions.length)
+    public boolean backPressed() {
+        if (numberQuestion <= 0 || numberQuestion > mQuestions.length)
             return (true);
         numberQuestion--;
         fillView();
@@ -109,6 +126,8 @@ public class FragmentQuestionnaire extends Fragment implements View.OnClickListe
 
         if (numberQuestion < mQuestions.length)
             fillView();
+        else if (numberQuestion == mQuestions.length)
+            fillViewAvis();
         else
             getPoint();
     }

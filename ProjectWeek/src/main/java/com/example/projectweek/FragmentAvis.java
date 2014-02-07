@@ -1,5 +1,6 @@
 package com.example.projectweek;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,7 +15,7 @@ import android.widget.TextView;
  * Created by svirch_n on 31/01/14.
  * nicolas.svirchevsky@epitech.eu
  */
-public class FragmentAvis extends Fragment {
+public class FragmentAvis extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class FragmentAvis extends Fragment {
             ((TextView)newView.findViewById(R.id.content)).setText("La nouvelle collection est chouette. Je viens d'acheter ce petit ensemble pour l'été");
             ((ImageView)newView.findViewById(R.id.icone)).setImageDrawable(getResources().getDrawable(R.drawable.photo_rodolpha));
             ((ImageView)newView.findViewById(R.id.image)).setImageDrawable(getResources().getDrawable(R.drawable.photo_avis));
+            ((ImageView)newView.findViewById(R.id.image)).setOnClickListener(this);
             viewGroup.addView(newView);
         }
 
@@ -62,5 +64,12 @@ public class FragmentAvis extends Fragment {
         }
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ImageActivity.class);
+        intent.putExtra(MyActivity.EXTRA_EVENT, ((AvisActivity)getActivity()).getColor());
+        startActivity(intent);
     }
 }
