@@ -8,7 +8,7 @@ Our group was made of 3 schools.
 
 The design work from E-Artsup  (http://www.e-artsup.net) has been done by:
 
-- Aline Davion
+- Aline Davion (aline.davion@e-artsup.net)
 
 The commercial aspect from ISEG Marketing & communication school (http://mcs.iseg.fr) has been done by:
 
