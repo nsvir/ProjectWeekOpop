@@ -64,7 +64,7 @@ public class FragmentAvis extends Fragment implements View.OnClickListener {
 //            Bitmap originalBmp = BitmapFactory.decodeResource(getActivity().getResources(),
 //                    R.drawable.photo_avis);
 //            Bitmap bitmap = Bitmap.createBitmap(originalBmp, 0, 0, originalBmp.getWidth(), 450);
-            ((ImageView) newView.findViewById(R.id.image)).setImageDrawable(getResources().getDrawable(R.drawable.photo_avis_miniature));
+            ((ImageView) newView.findViewById(R.id.image)).setImageDrawable(getResources().getDrawable(R.drawable.photo_avis));
             (newView.findViewById(R.id.image)).setOnClickListener(this);
 
             viewGroup.addView(newView);
